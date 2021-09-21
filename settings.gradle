@@ -1,2 +1,18 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+include ':lib:coroutines'
+include ':lib:coroutines-mvvm'
+include ':features:binaria'
+include ':features:home'
+include ':navigation'
 include ':app'
+
 rootProject.name = "PenguinPay"
+enableFeaturePreview("VERSION_CATALOGS")
+include ':features:common'

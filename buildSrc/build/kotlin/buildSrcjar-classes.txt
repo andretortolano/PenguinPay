@@ -1,0 +1,1 @@
+D:\Projects\andretortolano\PenguinPay\buildSrc\build\classes\kotlin\main\GradleConfig.class;D:\Projects\andretortolano\PenguinPay\buildSrc\build\classes\kotlin\main\Versions.class;D:\Projects\andretortolano\PenguinPay\buildSrc\build\classes\kotlin\main\deps\Deps.class;D:\Projects\andretortolano\PenguinPay\buildSrc\build\classes\kotlin\main\deps\LocalDeps.class

@@ -1,26 +1,71 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+import deps.Deps
+
 buildscript {
-    ext.kotlin_version = "1.4.32"
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
+
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.3"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
+        classpath 'com.android.tools.build:gradle:7.0.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty('android')) {
+            android {
+                compileSdkVersion GradleConfig.targetSdk
+
+                defaultConfig {
+                    minSdkVersion GradleConfig.minSdk
+                    targetSdkVersion GradleConfig.targetSdk
+
+                    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+                }
+
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_1_8
+                    targetCompatibility JavaVersion.VERSION_1_8
+                }
+
+                kotlinOptions {
+                    jvmTarget = JavaVersion.VERSION_1_8.toString()
+                }
+
+                buildFeatures {
+                    viewBinding true
+                }
+            }
+
+            dependencies {
+
+                implementation(
+                        Deps.kotlin,
+                        Deps.androidxCompat,
+                        Deps.koin
+                )
+//
+//                testImplementation(
+//                        TestDeps.junit,
+//                        TestDeps.truth,
+//                        TestDeps.mockk,
+//                        TestDeps.coroutines,
+//                        TestDeps.androidCore
+//                )
+//
+//                androidTestImplementation(
+//                        AndroidTestDeps.junit,
+//                        AndroidTestDeps.runner,
+//                        AndroidTestDeps.espresso
+//                )
+            }
+        }
+    }
+}
+
