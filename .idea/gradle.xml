@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/lib" />
             <option value="$PROJECT_DIR$/lib/coroutines" />
             <option value="$PROJECT_DIR$/lib/coroutines-mvvm" />
+            <option value="$PROJECT_DIR$/lib/extensions" />
             <option value="$PROJECT_DIR$/navigation" />
           </set>
         </option>

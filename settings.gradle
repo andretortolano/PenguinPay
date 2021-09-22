@@ -16,3 +16,4 @@ include ':app'
 rootProject.name = "PenguinPay"
 enableFeaturePreview("VERSION_CATALOGS")
 include ':features:common'
+include ':lib:extensions'

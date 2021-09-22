@@ -1,0 +1,20 @@
+import deps.TestDeps
+
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+
+    testImplementation(
+            TestDeps.junit,
+            TestDeps.googleTruth,
+            TestDeps.mockk
+    )
+}
