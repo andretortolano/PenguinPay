@@ -8,10 +8,8 @@ object Deps {
 
     const val androidxCompat = "androidx.appcompat:appcompat:${Versions.androidxCompat}"
 
-    val koin = arrayListOf(
-        "io.insert-koin:koin-core:${Versions.koin}",
-        "io.insert-koin:koin-android:${Versions.koin}"
-    )
+    const val koin = "io.insert-koin:koin-core:${Versions.koin}"
+    const val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
 
     val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"
 }

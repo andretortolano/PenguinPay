@@ -1,4 +1,5 @@
 import deps.Deps
+import deps.LocalDeps
 
 plugins {
     id 'com.android.library'
@@ -7,4 +8,9 @@ plugins {
 
 dependencies {
     implementation Deps.materialDesign
+
+    implementation project(LocalDeps.navigation)
+    implementation project(LocalDeps.di)
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
 }

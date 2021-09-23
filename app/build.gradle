@@ -24,8 +24,11 @@ android {
 dependencies {
 
     implementation project(LocalDeps.navigation)
+    implementation project(LocalDeps.di)
 
     implementation project(LocalDeps.featureCommon)
     implementation project(LocalDeps.featureHome)
     implementation project(LocalDeps.featureBinaria)
+
+    implementation project(LocalDeps.dataRemoteExchange)
 }

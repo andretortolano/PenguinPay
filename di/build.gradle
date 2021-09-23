@@ -1,4 +1,4 @@
-import deps.LocalDeps
+import deps.Deps
 
 plugins {
     id 'java-library'
@@ -11,6 +11,5 @@ java {
 }
 
 dependencies {
-    implementation project(LocalDeps.libCoroutines)
-    implementation project(LocalDeps.di)
+    implementation Deps.koin
 }

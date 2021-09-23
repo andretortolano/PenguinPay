@@ -22,7 +22,7 @@ class PenguinPayApp : Application() {
         startKoin {
             androidContext(applicationContext)
 
-            loadKoinModules(FeatureModuleProvider.get())
+            loadKoinModules(KoinModuleProvider.get())
         }
     }
 }
