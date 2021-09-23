@@ -13,5 +13,7 @@ class LaunchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         startActivity(homeNavigation.getHomeIntent(this))
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        finish()
     }
 }
