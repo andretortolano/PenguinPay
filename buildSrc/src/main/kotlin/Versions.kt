@@ -1,5 +1,6 @@
 object Versions {
     const val kotlin = "1.5.31"
+    const val kotlinCoroutines = "1.5.2"
 
     const val androidxCompat = "1.3.1"
 

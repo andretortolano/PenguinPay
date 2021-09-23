@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.8">
       <module name="PenguinPay.app" target="11" />
       <module name="PenguinPay.buildSrc" target="11" />
+      <module name="PenguinPay.data.remote.exchange" target="11" />
       <module name="PenguinPay.features.binaria" target="11" />
       <module name="PenguinPay.features.common" target="11" />
       <module name="PenguinPay.features.home" target="11" />

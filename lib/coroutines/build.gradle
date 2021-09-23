@@ -1,3 +1,4 @@
+import deps.Deps
 
 plugins {
     id 'java-library'
@@ -10,5 +11,5 @@ java {
 }
 
 dependencies {
-//    implementation Deps.kotlin
+    implementation Deps.kotlinCoroutines
 }

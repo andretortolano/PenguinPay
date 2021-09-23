@@ -48,6 +48,8 @@ subprojects {
 
                 implementation(
                         Deps.kotlin,
+                        Deps.kotlinCoroutines,
+                        Deps.kotlinCoroutinesAndroid,
                         Deps.androidxCompat,
                         Deps.koin
                 )

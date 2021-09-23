@@ -6,7 +6,7 @@ fun Int.toBinaryString(): String {
     return Integer.toBinaryString(this)
 }
 
-fun String.asBinaryToString(): Int {
+fun String.asBinaryToInt(): Int {
     if(matches("^[0-1]+$".toRegex()).not()) {
         throw NumberFormatException()
     }
