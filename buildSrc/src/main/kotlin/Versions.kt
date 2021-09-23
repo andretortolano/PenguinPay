@@ -9,4 +9,6 @@ object Versions {
     const val junit = "4.13.2"
     const val mockk = "1.10.2"
     const val truth = "1.1.3"
+
+    const val materialDesign = "1.4.0"
 }

@@ -12,4 +12,6 @@ object Deps {
         "io.insert-koin:koin-core:${Versions.koin}",
         "io.insert-koin:koin-android:${Versions.koin}"
     )
+
+    val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"
 }

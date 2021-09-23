@@ -3,19 +3,11 @@
 
     <style name="PenguinPay" />
 
-    <style name="PenguinPay.AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="PenguinPay.AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+        <item name="buttonStyle">@style/PenguinPay.Button.Primary</item>
     </style>
-
-<!--    <style name="PenguinPay.TextView" />-->
-
-<!--    <style name="PenguinPay.TextView.ScreenTitleTextView" parent="TextAppearance.AppCompat">-->
-<!--        <item name="android:textColor">@android:color/white</item>-->
-<!--        <item name="android:textSize">28sp</item>-->
-<!--        <item name="android:textStyle">bold</item>-->
-<!--    </style>-->
 
 </resources>
