@@ -2,4 +2,11 @@
     <string name="select_recipient_country_title">Select Recipient Country</string>
     <string name="fill_recipient_info_title">Fill Recipient Info</string>
     <string name="country_item_adapter_description">(%1$s) %2$s</string>
+    <string name="recipient_info_phone_hint">Phone (%1$s)</string>
+    <string name="recipient_info_phone_prefix">%1$s\u0020</string>
+    <string name="recipient_info_first_name_hint">First Name</string>
+    <string name="recipient_info_last_name_hint">Last Name</string>
+    <string name="recipient_info_first_name_empty_error">* first name is empty</string>
+    <string name="recipient_info_last_name_empty_error">* last name is empty</string>
+    <string name="recipient_info_phone_not_valid_error">* phone must contain exactly %d numbers</string>
 </resources>

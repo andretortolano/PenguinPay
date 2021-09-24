@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     tools:background="@color/colorPrimary"
-    tools:context=".ui.RecipientInfoFragment">
+    tools:context=".ui.recipientinfo.RecipientInfoFragment">
 
 
     <TextView
@@ -20,54 +20,56 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/firstName"
+        android:id="@+id/firstNameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="First Name"
+        android:hint="@string/recipient_info_first_name_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstNameEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:maxLength="20" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/lastName"
+        android:id="@+id/lastNameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Last Name"
+        android:hint="@string/recipient_info_last_name_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstName">
+        app:layout_constraintTop_toBottomOf="@+id/firstNameLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lastNameEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:maxLength="20" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phone"
+        android:id="@+id/phoneLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Phone (KAN)"
-        app:prefixText="+(555) "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastName">
+        app:layout_constraintTop_toBottomOf="@+id/lastNameLayout"
+        app:prefixText="@string/recipient_info_phone_prefix">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:inputType="number"
-            android:maxLength="9"
-            android:textCursorDrawable="@null"
+            android:id="@+id/phoneEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

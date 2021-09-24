@@ -13,7 +13,7 @@ import com.penguinpay.feature.binaria.ui.countryselect.adapter.CountryAdapter
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CountrySelectionFragment : Fragment() {
+internal class CountrySelectionFragment : Fragment() {
 
     private var _binding: FragmentCountrySelectionBinding? = null
     private val binding get() = _binding!!
@@ -41,6 +41,10 @@ class CountrySelectionFragment : Fragment() {
         if (savedInstanceState == null) {
             viewModel.onStart()
         }
+    }
+
+    private fun setupView() {
+        binding.recyclerview.adapter = countryAdapter
     }
 
     private fun setupViewModel() {
@@ -71,9 +75,5 @@ class CountrySelectionFragment : Fragment() {
         when (action) {
             CountrySelectionViewModel.CountrySelectionViewAction.Nothing -> TODO()
         }
-    }
-
-    private fun setupView() {
-        binding.recyclerview.adapter = countryAdapter
     }
 }

@@ -13,43 +13,43 @@
         <action
             android:id="@+id/action_countrySelectionFragment_to_recipientInfoFragment"
             app:destination="@id/recipientInfoFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/recipientInfoFragment"
-        android:name="com.penguinpay.feature.binaria.ui.RecipientInfoFragment"
+        android:name="com.penguinpay.feature.binaria.ui.recipientinfo.RecipientInfoFragment"
         android:label="fragment_recipient_info"
         tools:layout="@layout/fragment_recipient_info">
         <action
             android:id="@+id/action_recipientInfoFragment_to_sendRecipientFragment"
             app:destination="@id/sendRecipientFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/sendRecipientFragment"
-        android:name="com.penguinpay.feature.binaria.ui.SendRecipientFragment"
+        android:name="com.penguinpay.feature.binaria.ui.send.SendRecipientFragment"
         android:label="fragment_send_recipient"
         tools:layout="@layout/fragment_send_recipient">
         <action
             android:id="@+id/action_sendRecipientFragment_to_receiptFragment"
             app:destination="@id/receiptFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/receiptFragment"
-        android:name="com.penguinpay.feature.binaria.ui.ReceiptFragment"
+        android:name="com.penguinpay.feature.binaria.ui.receipt.ReceiptFragment"
         android:label="fragment_receipt"
         tools:layout="@layout/fragment_receipt" />
 

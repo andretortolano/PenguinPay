@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.penguinpay.domain.exchange.entity.ExchangeCountryEntity
 
-class CountryAdapter(private val listener: OnCountryAdapterListener) :
+internal class CountryAdapter(private val listener: OnCountryAdapterListener) :
     AsyncListDifferDelegationAdapter<CountryAdapterItem>(CountryAdapterDiffConfig()) {
 
     interface OnCountryAdapterListener {

@@ -2,6 +2,8 @@ package com.penguinpay.feature.binaria.ui
 
 import com.penguinpay.domain.exchange.entity.ExchangeCountryEntity
 import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewAction
+import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewAction.NavigateToRecipientInfo
+import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewAction.NavigateToSendRecipient
 import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewState
 import com.penguinpay.libraries.coroutines.CoroutineService
 import com.penguinpay.libraries.coroutines.android.CoroutinesViewModel
@@ -10,13 +12,14 @@ internal class BinariaViewModel(
     coroutineService: CoroutineService,
 ) : CoroutinesViewModel<BinariaViewState, BinariaViewAction>(coroutineService) {
 
-    data class BinariaViewState(
-        val country: ExchangeCountryEntity? = null,
-        val firstName: String? = String(),
-        val lastName: String? = String(),
-        val transferUSDAmount: String = String(),
-        val transferCurrencyAmount: String = String(),
-    )
+    var country: ExchangeCountryEntity? = null
+    var firstName: String = String()
+    var lastName: String = String()
+    var completePhone: String = String()
+    var transferBinaryUSDAmount: String = String()
+    var transferBinaryCurrencyAmount: String = String()
+
+    class BinariaViewState
 
     sealed class BinariaViewAction {
         object NavigateToRecipientInfo : BinariaViewAction()
@@ -25,11 +28,18 @@ internal class BinariaViewModel(
     }
 
     fun onCountrySelected(country: ExchangeCountryEntity) {
-        _state.postValue(_state.value?.copy(country = country) ?: BinariaViewState().copy(country = country))
-        _action.postValue(BinariaViewAction.NavigateToRecipientInfo)
+        this.country = country
+
+        _action.postValue(NavigateToRecipientInfo)
     }
 
-    fun onCreate() {
-        _state.postValue(BinariaViewState())
+    fun onRecipientInfoFilled(firstName: String, lastName: String, phoneNumber: String) {
+        this.firstName = firstName
+        this.lastName = lastName
+        this.country?.let {
+            this.completePhone = it.phonePrefix + phoneNumber
+        }
+
+        _action.postValue(NavigateToSendRecipient)
     }
 }

@@ -5,6 +5,7 @@ import com.penguinpay.domain.exchange.interactor.GetExchangeCountriesUseCase
 import com.penguinpay.feature.binaria.Navigation
 import com.penguinpay.feature.binaria.ui.BinariaViewModel
 import com.penguinpay.feature.binaria.ui.countryselect.CountrySelectionViewModel
+import com.penguinpay.feature.binaria.ui.recipientinfo.RecipientInfoViewModel
 import com.penguinpay.navigation.BinariaNavigation
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
@@ -24,6 +25,12 @@ class BinariaKoinModule : KoinModule {
             CountrySelectionViewModel(
                 coroutineService = get(),
                 getExchangeCountriesUseCase = GetExchangeCountriesUseCase(get()),
+            )
+        }
+
+        viewModel {
+            RecipientInfoViewModel(
+                coroutineService = get()
             )
         }
     }
