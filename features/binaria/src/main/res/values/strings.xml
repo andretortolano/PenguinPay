@@ -1,1 +1,5 @@
-<resources></resources>
+<resources>
+    <string name="select_recipient_country_title">Select Recipient Country</string>
+    <string name="fill_recipient_info_title">Fill Recipient Info</string>
+    <string name="country_item_adapter_description">(%1$s) %2$s</string>
+</resources>

@@ -13,4 +13,7 @@ object LocalDeps {
     const val featureBinaria = ":features:binaria"
 
     const val dataRemoteExchange = ":data:remote:exchange"
+
+    const val domainExchange = ":domain:exchange"
+    const val domainTransfer = ":domain:transfer"
 }
