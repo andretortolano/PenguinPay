@@ -6,9 +6,9 @@ dependencyResolutionManagement {
     }
 }
 
-include ':lib:coroutines'
-include ':lib:coroutines-mvvm'
-include ':lib:extensions'
+include ':libraries:coroutines'
+include ':libraries:coroutines-android'
+include ':libraries:extensions'
 
 include ':data:remote:exchange'
 
@@ -24,4 +24,3 @@ include ':di'
 include ':app'
 
 rootProject.name = "PenguinPay"
-enableFeaturePreview("VERSION_CATALOGS")

@@ -51,22 +51,16 @@ subprojects {
                         Deps.kotlinCoroutines,
                         Deps.kotlinCoroutinesAndroid,
                         Deps.androidxCompat,
-                        Deps.koinAndroid
+                        Deps.koinAndroid,
                 )
 
                 testImplementation(
                         TestDeps.junit,
                         TestDeps.googleTruth,
-                        TestDeps.mockk
-//                        TestDeps.coroutines,
-//                        TestDeps.androidCore
+                        TestDeps.mockk,
+                        TestDeps.coroutines,
+                        TestDeps.androidxCore
                 )
-//
-//                androidTestImplementation(
-//                        AndroidTestDeps.junit,
-//                        AndroidTestDeps.runner,
-//                        AndroidTestDeps.espresso
-//                )
             }
         }
     }

@@ -1,3 +1,4 @@
+import deps.Deps
 import deps.LocalDeps
 
 plugins {
@@ -6,15 +7,18 @@ plugins {
 }
 
 dependencies {
-
-    implementation project(LocalDeps.navigation)
-    implementation project(LocalDeps.di)
-    implementation project(LocalDeps.featureCommon)
+    implementation (
+            project(LocalDeps.featureCommon),
+            project(LocalDeps.libCoroutines),
+            project(LocalDeps.libCoroutinesAndroid),
+            project(LocalDeps.di),
+    )
 
     implementation project(LocalDeps.dataRemoteExchange)
 
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation (
+            Deps.androidxConstraintLayout,
+            Deps.lifecycleViewModel,
+            Deps.lifecycleLiveData
+    )
 }

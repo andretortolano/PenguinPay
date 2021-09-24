@@ -4,7 +4,7 @@ import com.google.common.truth.Truth.assertThat
 import com.penguinpay.domain.exchange.interactor.ExchangeUSDBinaryUseCase.Request
 import com.penguinpay.domain.exchange.interactor.ExchangeUSDBinaryUseCase.Result
 import com.penguinpay.domain.exchange.testing.MockKCoroutinesTest
-import com.penguinpay.lib.extensions.binary.toBinaryString
+import com.penguinpay.libraries.extensions.binary.toBinaryString
 import io.mockk.coEvery
 import io.mockk.coVerifySequence
 import io.mockk.impl.annotations.InjectMockKs

@@ -24,10 +24,10 @@
             <option value="$PROJECT_DIR$/features/binaria" />
             <option value="$PROJECT_DIR$/features/common" />
             <option value="$PROJECT_DIR$/features/home" />
-            <option value="$PROJECT_DIR$/lib" />
-            <option value="$PROJECT_DIR$/lib/coroutines" />
-            <option value="$PROJECT_DIR$/lib/coroutines-mvvm" />
-            <option value="$PROJECT_DIR$/lib/extensions" />
+            <option value="$PROJECT_DIR$/libraries" />
+            <option value="$PROJECT_DIR$/libraries/coroutines" />
+            <option value="$PROJECT_DIR$/libraries/coroutines-android" />
+            <option value="$PROJECT_DIR$/libraries/extensions" />
             <option value="$PROJECT_DIR$/navigation" />
           </set>
         </option>

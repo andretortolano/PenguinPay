@@ -2,7 +2,7 @@ package com.penguinpay.domain.exchange.interactor
 
 import com.penguinpay.domain.exchange.exception.ExchangeRateException
 import com.penguinpay.domain.exchange.gateway.ExchangeRateGateway
-import com.penguinpay.lib.coroutines.CoroutineService
+import com.penguinpay.libraries.coroutines.CoroutineService
 import kotlinx.coroutines.withContext
 
 class ExchangeUSDUseCase(private val coroutines: CoroutineService, private val exchangeRateGateway: ExchangeRateGateway) {

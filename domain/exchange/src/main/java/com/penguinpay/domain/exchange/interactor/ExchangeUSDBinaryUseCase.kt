@@ -1,8 +1,8 @@
 package com.penguinpay.domain.exchange.interactor
 
-import com.penguinpay.lib.coroutines.CoroutineService
-import com.penguinpay.lib.extensions.binary.asBinaryToInt
-import com.penguinpay.lib.extensions.binary.toBinaryString
+import com.penguinpay.libraries.coroutines.CoroutineService
+import com.penguinpay.libraries.extensions.binary.asBinaryToInt
+import com.penguinpay.libraries.extensions.binary.toBinaryString
 import kotlinx.coroutines.withContext
 import kotlin.math.roundToInt
 

@@ -1,16 +1,16 @@
 package deps
 
 object LocalDeps {
-    val navigation = ":navigation"
-    val di = ":di"
+    const val navigation = ":navigation"
+    const val di = ":di"
 
-    val libCoroutines = ":lib:coroutines"
-    val libCoroutinesMvvvm = ":lib:coroutines-mvvm"
-    val libExtensions = ":lib:extensions"
+    const val libCoroutines = ":libraries:coroutines"
+    const val libCoroutinesAndroid = ":libraries:coroutines-android"
+    const val libExtensions = ":libraries:extensions"
 
-    val featureCommon = ":features:common"
-    val featureHome = ":features:home"
-    val featureBinaria = ":features:binaria"
+    const val featureCommon = ":features:common"
+    const val featureHome = ":features:home"
+    const val featureBinaria = ":features:binaria"
 
-    val dataRemoteExchange = ":data:remote:exchange"
+    const val dataRemoteExchange = ":data:remote:exchange"
 }

@@ -9,7 +9,7 @@
       <module name="PenguinPay.features.common" target="11" />
       <module name="PenguinPay.features.home" target="11" />
       <module name="PenguinPay.koin" target="11" />
-      <module name="PenguinPay.lib.coroutines-mvvm" target="11" />
+      <module name="PenguinPay.libraries.coroutines-android" target="11" />
       <module name="PenguinPay.navigation" target="11" />
     </bytecodeTargetLevel>
   </component>

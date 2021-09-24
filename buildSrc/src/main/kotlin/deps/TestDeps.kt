@@ -6,4 +6,5 @@ object TestDeps {
     const val googleTruth = "com.google.truth:truth:${Versions.truth}"
 
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCoroutines}"
+    const val androidxCore = "androidx.arch.core:core-testing:${Versions.androidCoreTest}"
 }
