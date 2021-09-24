@@ -12,6 +12,7 @@ dependencies {
             project(LocalDeps.libCoroutines),
             project(LocalDeps.libCoroutinesAndroid),
             project(LocalDeps.di),
+            project(LocalDeps.navigation)
     )
 
     implementation project(LocalDeps.dataRemoteExchange)
