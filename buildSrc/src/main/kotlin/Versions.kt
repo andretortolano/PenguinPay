@@ -14,4 +14,6 @@ object Versions {
     const val truth = "1.1.3"
 
     const val materialDesign = "1.4.0"
+    const val navigation = "2.3.5"
+    const val adapterDelegate = "4.3.0"
 }

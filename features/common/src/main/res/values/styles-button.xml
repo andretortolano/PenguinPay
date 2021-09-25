@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="PenguinPay.Button" parent="Widget.MaterialComponents.Button.TextButton" />
+    <style name="PenguinPay.Button" parent="Widget.MaterialComponents.Button.TextButton" >
+        <item name="android:minWidth">160dp</item>
+    </style>
 
     <style name="PenguinPay.Button.Primary">
-        <item name="backgroundTint">@color/colorAccent</item>
+        <item name="backgroundTint">@color/primary_button_color_selector</item>
         <item name="android:textColor">@color/colorAccentContrast</item>
     </style>
 </resources>

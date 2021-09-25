@@ -2,7 +2,6 @@ package com.penguinpay.feature.binaria.ui.recipientinfo
 
 import android.os.Bundle
 import android.text.InputFilter
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,15 +12,16 @@ import com.penguinpay.feature.binaria.R
 import com.penguinpay.feature.binaria.databinding.FragmentRecipientInfoBinding
 import com.penguinpay.feature.binaria.ui.BinariaViewModel
 import com.penguinpay.feature.binaria.ui.recipientinfo.validator.FormFieldState
-import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.skip
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 internal class RecipientInfoFragment : Fragment() {
+
+    companion object {
+        private const val EDITTEXT_DEBOUNCE = 500L
+    }
 
     private var _binding: FragmentRecipientInfoBinding? = null
     private val binding get() = _binding!!
@@ -41,7 +41,7 @@ internal class RecipientInfoFragment : Fragment() {
         setupViewModel()
 
         if (savedInstanceState == null) {
-            sharedViewModel.country?.let { viewModel.onStart(it) }
+            sharedViewModel.country?.let { viewModel.onViewCreated(it) }
         }
     }
 
@@ -52,23 +52,19 @@ internal class RecipientInfoFragment : Fragment() {
                 phoneLayout.prefixText = getString(R.string.recipient_info_phone_prefix, it.phonePrefix)
                 phoneLayout.hint = getString(R.string.recipient_info_phone_hint, it.countryAcronym)
 
-                firstNameEditText.textChanges()
-                    .debounce(300)
-                    .map { it.toString() }
+                firstNameEditText.textChanges(EDITTEXT_DEBOUNCE)
                     .onEach(viewModel::onFirstNameChanged)
                     .launchIn(lifecycleScope)
 
-                lastNameEditText.textChanges()
-                    .debounce(300)
-                    .map { it.toString() }
+                lastNameEditText.textChanges(EDITTEXT_DEBOUNCE)
                     .onEach(viewModel::onLastNameChanged)
                     .launchIn(lifecycleScope)
 
-                phoneEditText.textChanges()
-                    .debounce(300)
-                    .map { it.toString() }
+                phoneEditText.textChanges(EDITTEXT_DEBOUNCE)
                     .onEach(viewModel::onPhoneChanged)
                     .launchIn(lifecycleScope)
+
+                continueButton.setOnClickListener { viewModel.onContinueButtonClick() }
             }
         }
     }
@@ -79,24 +75,27 @@ internal class RecipientInfoFragment : Fragment() {
     }
 
     private fun renderState(state: RecipientInfoViewModel.RecipientInfoViewState) {
-        Log.i("renderState", state.toString())
-        when (state.firstNameField) {
-            is FormFieldState.Invalid -> binding.firstNameLayout.error = getString(R.string.recipient_info_first_name_empty_error)
-            is FormFieldState.Prune -> binding.firstNameLayout.isErrorEnabled = false
-            is FormFieldState.Valid -> binding.firstNameLayout.isErrorEnabled = false
-        }
+        with(binding) {
+            continueButton.isEnabled = state.isFormValid
 
-        when (state.lastNameField) {
-            is FormFieldState.Invalid -> binding.lastNameLayout.error = getString(R.string.recipient_info_last_name_empty_error)
-            is FormFieldState.Prune -> binding.lastNameLayout.isErrorEnabled = false
-            is FormFieldState.Valid -> binding.lastNameLayout.isErrorEnabled = false
-        }
+            when (state.firstNameField) {
+                is FormFieldState.Invalid -> firstNameLayout.error = getString(R.string.recipient_info_first_name_empty_error)
+                is FormFieldState.Prune -> firstNameLayout.isErrorEnabled = false
+                is FormFieldState.Valid -> firstNameLayout.isErrorEnabled = false
+            }
 
-        when (state.phoneField) {
-            is FormFieldState.Invalid -> binding.phoneLayout.error =
-                getString(R.string.recipient_info_phone_not_valid_error, viewModel.country.phoneValidSize)
-            is FormFieldState.Prune -> binding.phoneLayout.isErrorEnabled = false
-            is FormFieldState.Valid -> binding.phoneLayout.isErrorEnabled = false
+            when (state.lastNameField) {
+                is FormFieldState.Invalid -> lastNameLayout.error = getString(R.string.recipient_info_last_name_empty_error)
+                is FormFieldState.Prune -> lastNameLayout.isErrorEnabled = false
+                is FormFieldState.Valid -> lastNameLayout.isErrorEnabled = false
+            }
+
+            when (state.phoneField) {
+                is FormFieldState.Invalid -> phoneLayout.error =
+                    getString(R.string.recipient_info_phone_not_valid_error, viewModel.country.phoneValidSize)
+                is FormFieldState.Prune -> phoneLayout.isErrorEnabled = false
+                is FormFieldState.Valid -> phoneLayout.isErrorEnabled = false
+            }
         }
     }
 

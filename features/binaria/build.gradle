@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-    implementation (
+    implementation(
             project(LocalDeps.featureCommon),
             project(LocalDeps.libCoroutines),
             project(LocalDeps.libCoroutinesAndroid),
@@ -15,20 +15,20 @@ dependencies {
             project(LocalDeps.navigation)
     )
 
-    implementation project(LocalDeps.domainExchange)
+    implementation(
+            project(LocalDeps.domainExchange),
+            project(LocalDeps.domainTransfer)
+    )
 
     implementation project(LocalDeps.dataRemoteExchange)
 
-    implementation (
+    implementation(
             Deps.androidxConstraintLayout,
             Deps.lifecycleViewModel,
-            Deps.lifecycleLiveData
+            Deps.lifecycleLiveData,
+            Deps.navigationUi,
+            Deps.navigationFragment,
+            Deps.adapterDelegateKotlinDsl,
+            Deps.adapterDelegateKotlinDslViewBinding
     )
-
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
-    //implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-
-    implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.0'
-    implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.0'
 }

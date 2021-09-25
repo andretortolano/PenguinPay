@@ -33,13 +33,13 @@
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/loading"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="24dp"
         android:indeterminate="true"
         app:indicatorColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

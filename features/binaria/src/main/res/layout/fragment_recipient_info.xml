@@ -8,14 +8,13 @@
     tools:background="@color/colorPrimary"
     tools:context=".ui.recipientinfo.RecipientInfoFragment">
 
-
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textView"
         style="@style/PenguinPay.TextView.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/fill_recipient_info_title"
+        android:text="@string/recipient_info_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,5 +71,15 @@
             android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/continueButton"
+        style="@style/PenguinPay.Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recipient_info_continue_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

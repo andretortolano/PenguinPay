@@ -10,11 +10,12 @@ import com.penguinpay.libraries.coroutines.android.CoroutinesViewModel
 
 internal class RecipientInfoViewModel(
     coroutineService: CoroutineService
-) : CoroutinesViewModel<RecipientInfoViewState, RecipientInfoViewAction>(coroutineService) {
+) : CoroutinesViewModel<RecipientInfoViewState, RecipientInfoViewAction>(coroutineService, RecipientInfoViewState()) {
 
     lateinit var country: ExchangeCountryEntity
 
     data class RecipientInfoViewState(
+        val isFormValid: Boolean = false,
         val firstNameField: FormFieldState<String> = FormFieldState.Prune(),
         val lastNameField: FormFieldState<String> = FormFieldState.Prune(),
         val phoneField: FormFieldState<String> = FormFieldState.Prune(),
@@ -24,44 +25,58 @@ internal class RecipientInfoViewModel(
         data class GoNext(val firstName: String, val lastName: String, val phone: String) : RecipientInfoViewAction()
     }
 
-    fun onStart(country: ExchangeCountryEntity) {
+    fun onViewCreated(country: ExchangeCountryEntity) {
         this.country = country
-
-        _state.value = RecipientInfoViewState()
     }
 
     fun onPhoneChanged(phone: String) {
-        if (phone.length == country.phoneValidSize) {
-            _state.value = _state.value!!.copy(phoneField = FormFieldState.Valid(phone))
-        } else {
-            _state.value = _state.value!!.copy(phoneField = FormFieldState.Invalid())
-        }
+        with(stateValue) {
+            if (phoneField.isValidEquals(phone).not()) {
+                if (phone.length == country.phoneValidSize) {
+                    _state.value = copy(phoneField = FormFieldState.Valid(phone))
+                } else {
+                    _state.value = copy(phoneField = FormFieldState.Invalid())
+                }
 
-        goNextWhenAllValid()
+                updateFormValidationState()
+            }
+        }
     }
 
     fun onFirstNameChanged(firstName: String) {
-        if (firstName.isNotBlank()) {
-            _state.value = _state.value!!.copy(firstNameField = FormFieldState.Valid(firstName))
-        } else {
-            _state.value = _state.value!!.copy(firstNameField = FormFieldState.Invalid())
-        }
+        with(stateValue) {
+            if (firstNameField.isValidEquals(firstName).not()) {
+                if (firstName.isNotBlank()) {
+                    _state.value = copy(firstNameField = FormFieldState.Valid(firstName))
+                } else {
+                    _state.value = copy(firstNameField = FormFieldState.Invalid())
+                }
 
-        goNextWhenAllValid()
+                updateFormValidationState()
+            }
+        }
     }
 
     fun onLastNameChanged(lastName: String) {
-        if (lastName.isNotBlank()) {
-            _state.value = _state.value!!.copy(lastNameField = FormFieldState.Valid(lastName))
-        } else {
-            _state.value = _state.value!!.copy(lastNameField = FormFieldState.Invalid())
-        }
+        with(stateValue) {
+            if (lastNameField.isValidEquals(lastName).not()) {
+                if (lastName.isNotBlank()) {
+                    _state.value = copy(lastNameField = FormFieldState.Valid(lastName))
+                } else {
+                    _state.value = copy(lastNameField = FormFieldState.Invalid())
+                }
 
-        goNextWhenAllValid()
+                updateFormValidationState()
+            }
+        }
     }
 
-    private fun goNextWhenAllValid() {
-        with(_state.value!!) {
+    private fun updateFormValidationState() {
+        _state.value = stateValue.copy(isFormValid = stateValue.isFormValid())
+    }
+
+    fun onContinueButtonClick() {
+        with(stateValue) {
             if (firstNameField is FormFieldState.Valid
                 && lastNameField is FormFieldState.Valid
                 && phoneField is FormFieldState.Valid
@@ -77,4 +92,10 @@ internal class RecipientInfoViewModel(
         }
     }
 
+    private fun RecipientInfoViewState.isFormValid() =
+        firstNameField is FormFieldState.Valid
+                && lastNameField is FormFieldState.Valid
+                && phoneField is FormFieldState.Valid
+
+    private fun <T> FormFieldState<T>.isValidEquals(value: T) = this is FormFieldState.Valid && this.value == value
 }

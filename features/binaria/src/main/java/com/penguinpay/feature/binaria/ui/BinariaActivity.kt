@@ -36,11 +36,12 @@ internal class BinariaActivity : AppCompatActivity() {
     }
 
     private fun handleAction(action: BinariaViewModel.BinariaViewAction) {
-        val navHost = findNavController(R.id.nav_host_fragment)
-        when (action) {
-            NavigateToReceipt -> navHost.navigate(R.id.action_sendRecipientFragment_to_receiptFragment)
-            NavigateToRecipientInfo -> navHost.navigate(R.id.action_countrySelectionFragment_to_recipientInfoFragment)
-            NavigateToSendRecipient -> navHost.navigate(R.id.action_recipientInfoFragment_to_sendRecipientFragment)
+        with(findNavController(R.id.nav_host_fragment)) {
+            when (action) {
+                NavigateToReceipt -> navigate(R.id.action_sendRecipientFragment_to_receiptFragment)
+                NavigateToRecipientInfo -> navigate(R.id.action_countrySelectionFragment_to_recipientInfoFragment)
+                NavigateToSendRecipient -> navigate(R.id.action_recipientInfoFragment_to_sendRecipientFragment)
+            }
         }
     }
 }

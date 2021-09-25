@@ -1,4 +1,6 @@
+import deps.Deps
 import deps.LocalDeps
+import deps.TestDeps
 
 plugins {
     id 'java-library'
@@ -11,6 +13,18 @@ java {
 }
 
 dependencies {
-    implementation project(LocalDeps.libCoroutines)
+    implementation Deps.kotlinCoroutines
+
     implementation project(LocalDeps.di)
+    implementation project(LocalDeps.libCoroutines)
+    implementation project(LocalDeps.libExtensions)
+
+    testImplementation(
+            TestDeps.junit,
+            TestDeps.googleTruth,
+            TestDeps.mockk,
+            TestDeps.coroutines
+    )
+
+    testImplementation project(LocalDeps.libExtensions)
 }

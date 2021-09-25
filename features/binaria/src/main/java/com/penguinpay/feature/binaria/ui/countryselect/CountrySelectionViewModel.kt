@@ -10,7 +10,7 @@ import com.penguinpay.libraries.coroutines.android.CoroutinesViewModel
 internal class CountrySelectionViewModel(
     coroutineService: CoroutineService,
     private val getExchangeCountriesUseCase: GetExchangeCountriesUseCase
-) : CoroutinesViewModel<CountrySelectionViewState, CountrySelectionViewAction>(coroutineService) {
+) : CoroutinesViewModel<CountrySelectionViewState, CountrySelectionViewAction>(coroutineService, CountrySelectionViewState.Loading) {
 
     sealed class CountrySelectionViewState {
         object Loading : CountrySelectionViewState()

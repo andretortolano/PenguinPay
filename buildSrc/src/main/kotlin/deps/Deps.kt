@@ -16,4 +16,10 @@ object Deps {
 
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.androidLifecycle}"
     const val lifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.androidLifecycle}"
+
+    const val navigationUi = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    const val navigationFragment = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+
+    const val adapterDelegateKotlinDsl = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl:${Versions.adapterDelegate}"
+    const val adapterDelegateKotlinDslViewBinding = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:${Versions.adapterDelegate}"
 }

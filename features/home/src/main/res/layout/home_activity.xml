@@ -7,7 +7,7 @@
     tools:background="@color/colorPrimary"
     tools:context=".HomeActivity">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textView"
         style="@style/PenguinPay.TextView.Title"
         android:layout_width="wrap_content"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         style="@style/PenguinPay.Button.Primary"
         android:id="@+id/goToBinaria"
         android:layout_width="wrap_content"
