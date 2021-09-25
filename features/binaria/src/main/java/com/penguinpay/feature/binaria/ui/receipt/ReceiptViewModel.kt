@@ -11,9 +11,15 @@ internal class ReceiptViewModel(
 
     object ReceiptViewState
 
-    object ReceiptViewAction
+    sealed class ReceiptViewAction {
+        object Close : ReceiptViewAction()
+    }
 
-    fun onViewCreated() {
+    fun onBackPressed() {
+        _action.value = ReceiptViewAction.Close
+    }
 
+    fun onCloseClick() {
+        _action.value = ReceiptViewAction.Close
     }
 }

@@ -14,6 +14,8 @@
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="circularProgressIndicatorStyle">@style/PenguinPay.CircularProgressIndicator</item>
+        <item name="linearProgressIndicatorStyle">@style/PenguinPay.LinearProgressIndicator</item>
     </style>
 
 </resources>

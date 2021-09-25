@@ -17,4 +17,14 @@
     <string name="send_recipient_usd_binary_hint">USD Binary</string>
     <string name="send_recipient_send_button">Send</string>
     <string name="send_recipient_send_description_text" formatted="false">The recipient %1$s from %2$s will receive `%3$s` (%4$s) Binary.</string>
+    <string name="send_recipient_not_binary_error">Number is not binary.</string>
+    <string name="send_recipient_something_went_wrong">Something is wrong, try again.</string>
+
+    <string name="receipt_title">Receipt</string>
+    <string name="receipt_subtitle">Thank you for send money with PenguinPay!</string>
+    <string name="receipt_close_button">Close</string>
+    <string name="receipt_recipient_name">Recipient Name</string>
+    <string name="receipt_recipient_phone">Recipient Phone</string>
+    <string name="receipt_recipient_sent">Sent Value</string>
+    <string name="receipt_recipient_sent_value" formatted="false">%1$s (%2$s)</string>
 </resources>

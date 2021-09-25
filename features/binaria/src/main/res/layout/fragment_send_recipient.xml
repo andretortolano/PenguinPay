@@ -56,9 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
         android:layout_marginEnd="3dp"
-        android:indeterminate="true"
         android:visibility="gone"
-        app:indicatorColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="@+id/usdBinaryLayout"
         app:layout_constraintEnd_toEndOf="@+id/usdBinaryLayout"
         app:layout_constraintStart_toStartOf="@+id/usdBinaryLayout" />
@@ -72,5 +70,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/sendLoading"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

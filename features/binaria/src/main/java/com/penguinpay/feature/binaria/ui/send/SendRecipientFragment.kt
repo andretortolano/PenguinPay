@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -39,14 +40,14 @@ internal class SendRecipientFragment : Fragment() {
     private fun setupView() {
         with(binding) {
             usdBinaruEditText.textChanges()
-                .onEach(viewModel::onUSDBinaryChanged)
+                .onEach { viewModel.onUSDBinaryChanged(it, sharedViewModel.country!!.countryAcronym) }
                 .launchIn(lifecycleScope)
 
             sendButton.setOnClickListener {
                 viewModel.onSendButtonClick(
                     sharedViewModel.completeName,
                     sharedViewModel.completePhone,
-                    sharedViewModel.country!!.countryName
+                    sharedViewModel.country!!.countryAcronym
                 )
             }
         }
@@ -62,6 +63,9 @@ internal class SendRecipientFragment : Fragment() {
             loadingExchange.isVisible = state.isLoadingExchangeValue
             sendDescription.isVisible = state.isLoadingExchangeValue.not() && state.isFormValid
 
+            sendLoading.isVisible = state.isSending
+            sendButton.isVisible = state.isSending.not()
+
             sendDescription.text = getString(
                 R.string.send_recipient_send_description_text,
                 sharedViewModel.completeName,
@@ -75,6 +79,12 @@ internal class SendRecipientFragment : Fragment() {
     private fun handleAction(action: SendRecipientViewModel.SendRecipientViewAction) {
         when (action) {
             is SendRecipientViewModel.SendRecipientViewAction.SendTransfer -> sharedViewModel.onTransactionSent(action.receipt)
+            SendRecipientViewModel.SendRecipientViewAction.NumberNotBinaryError -> sendToast(R.string.send_recipient_not_binary_error)
+            SendRecipientViewModel.SendRecipientViewAction.SomethingWentWrong -> sendToast(R.string.send_recipient_something_went_wrong)
         }
+    }
+
+    private fun sendToast(res: Int) {
+        Toast.makeText(activity, res, Toast.LENGTH_SHORT).show()
     }
 }

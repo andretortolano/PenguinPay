@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PenguinPay.CircularProgressIndicator" parent="Widget.MaterialComponents.CircularProgressIndicator" >
+        <item name="android:indeterminate">true</item>
+        <item name="indicatorColor">@color/colorAccent</item>
+    </style>
+
+    <style name="PenguinPay.LinearProgressIndicator" parent="Widget.MaterialComponents.LinearProgressIndicator" >
+        <item name="android:indeterminate">true</item>
+        <item name="indicatorColor">@color/colorAccent</item>
+    </style>
+
+</resources>

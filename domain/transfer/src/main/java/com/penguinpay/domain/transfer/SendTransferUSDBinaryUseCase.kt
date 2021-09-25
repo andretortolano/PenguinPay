@@ -4,15 +4,14 @@ import com.penguinpay.domain.transfer.entity.TransferReceiptEntity
 import com.penguinpay.libraries.coroutines.CoroutineService
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
-import java.util.Calendar
 
-class SendTransferBinaryUseCase(private val coroutines: CoroutineService) {
+class SendTransferUSDBinaryUseCase(private val coroutines: CoroutineService) {
 
     data class Request(
         val recipientName: String,
         val recipientPhone: String,
-        val recipientCountryName: String,
         val sentUSDBinary: String,
+        val currency: String,
         val receivedBinary: String,
     )
 
@@ -21,10 +20,8 @@ class SendTransferBinaryUseCase(private val coroutines: CoroutineService) {
         return@withContext TransferReceiptEntity(
             recipientName = request.recipientName,
             recipientPhone = request.recipientPhone,
-            recipientCountryName = request.recipientCountryName,
-            sentUSDBinary = request.sentUSDBinary,
-            receivedBinary = request.receivedBinary,
-            transactionDate = Calendar.getInstance().toString(),
+            currency = request.currency,
+            valueBinary = request.receivedBinary,
         )
     }
 }
