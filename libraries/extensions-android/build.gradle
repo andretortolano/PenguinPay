@@ -1,5 +1,4 @@
 import deps.Deps
-import deps.LocalDeps
 
 plugins {
     id 'com.android.library'
@@ -13,10 +12,9 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
 }
 
 dependencies {
-    implementation Deps.materialDesign
-
-    implementation project(LocalDeps.navigation)
-    implementation project(LocalDeps.di)
-
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation(
+            Deps.kotlin,
+            Deps.kotlinCoroutines,
+            Deps.kotlinCoroutinesAndroid
+    )
 }

@@ -8,10 +8,10 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.penguinpay.common.extensions.textChanges
 import com.penguinpay.feature.binaria.R
 import com.penguinpay.feature.binaria.databinding.FragmentSendRecipientBinding
 import com.penguinpay.feature.binaria.ui.BinariaViewModel
+import com.penguinpay.libraries.extensions.android.textChanges
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel

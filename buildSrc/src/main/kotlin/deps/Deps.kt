@@ -20,6 +20,10 @@ object Deps {
     const val navigationUi = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationFragment = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
 
-    const val adapterDelegateKotlinDsl = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl:${Versions.adapterDelegate}"
-    const val adapterDelegateKotlinDslViewBinding = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:${Versions.adapterDelegate}"
+    const val adapterDelegate = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl:${Versions.adapterDelegate}"
+    const val adapterDelegateViewBinding = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:${Versions.adapterDelegate}"
+
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val okHttp3LogInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
 }

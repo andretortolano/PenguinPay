@@ -7,13 +7,16 @@ plugins {
 }
 
 dependencies {
+
     implementation(
-            project(LocalDeps.featureCommon),
-            project(LocalDeps.libCoroutines),
+            project(LocalDeps.appDependencyInjection),
+            project(LocalDeps.appDesignSystem),
+            project(LocalDeps.appNavigation),
             project(LocalDeps.libCoroutinesAndroid),
-            project(LocalDeps.di),
-            project(LocalDeps.navigation)
+            project(LocalDeps.libExtensionsAndroid)
     )
+
+    testImplementation(project(LocalDeps.libCoroutinesAndroidTest))
 
     implementation(
             project(LocalDeps.domainExchange),
@@ -23,12 +26,7 @@ dependencies {
     implementation project(LocalDeps.dataRemoteExchange)
 
     implementation(
-            Deps.androidxConstraintLayout,
-            Deps.lifecycleViewModel,
-            Deps.lifecycleLiveData,
-            Deps.navigationUi,
-            Deps.navigationFragment,
-            Deps.adapterDelegateKotlinDsl,
-            Deps.adapterDelegateKotlinDslViewBinding
+            Deps.adapterDelegate,
+            Deps.adapterDelegateViewBinding
     )
 }

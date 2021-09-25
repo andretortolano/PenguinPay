@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
-import com.penguinpay.common.extensions.hideKeyboard
 import com.penguinpay.feature.binaria.R
 import com.penguinpay.feature.binaria.databinding.FragmentReceiptBinding
 import com.penguinpay.feature.binaria.ui.BinariaViewModel
+import com.penguinpay.libraries.extensions.android.hideKeyboard
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

@@ -5,7 +5,7 @@ import com.penguinpay.domain.exchange.exception.ExchangeRateException
 import com.penguinpay.domain.exchange.gateway.ExchangeRateGateway
 import com.penguinpay.domain.exchange.interactor.ExchangeUSDUseCase.Request
 import com.penguinpay.domain.exchange.interactor.ExchangeUSDUseCase.Result
-import com.penguinpay.domain.exchange.testing.MockKCoroutinesTest
+import com.penguinpay.libraries.coroutines.test.MockKCoroutinesTest
 import io.mockk.coEvery
 import io.mockk.coVerifySequence
 import io.mockk.impl.annotations.InjectMockKs

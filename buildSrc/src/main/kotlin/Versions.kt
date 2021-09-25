@@ -16,4 +16,7 @@ object Versions {
     const val materialDesign = "1.4.0"
     const val navigation = "2.3.5"
     const val adapterDelegate = "4.3.0"
+
+    const val retrofit = "2.9.0"
+    const val okHttp = "4.9.0"
 }

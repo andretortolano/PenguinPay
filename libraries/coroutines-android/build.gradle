@@ -1,4 +1,5 @@
 import deps.Deps
+import deps.LocalDeps
 
 plugins {
     id 'com.android.library'
@@ -6,9 +7,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":libraries:coroutines"))
+    api(project(LocalDeps.libCoroutines))
 
-    implementation(
+    api(
+            Deps.kotlin,
             Deps.kotlinCoroutines,
             Deps.kotlinCoroutinesAndroid,
             Deps.lifecycleLiveData,

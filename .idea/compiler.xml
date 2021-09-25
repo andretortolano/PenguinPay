@@ -3,6 +3,8 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
       <module name="PenguinPay.app" target="11" />
+      <module name="PenguinPay.appDesignSystem" target="11" />
+      <module name="PenguinPay.appNavigation" target="11" />
       <module name="PenguinPay.buildSrc" target="11" />
       <module name="PenguinPay.data.remote.exchange" target="11" />
       <module name="PenguinPay.features.binaria" target="11" />
@@ -10,7 +12,8 @@
       <module name="PenguinPay.features.home" target="11" />
       <module name="PenguinPay.koin" target="11" />
       <module name="PenguinPay.libraries.coroutines-android" target="11" />
-      <module name="PenguinPay.navigation" target="11" />
+      <module name="PenguinPay.libraries.coroutines-android-test" target="11" />
+      <module name="PenguinPay.libraries.extensions-android" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

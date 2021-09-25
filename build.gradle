@@ -1,6 +1,4 @@
 import deps.Deps
-import deps.LocalDeps
-import deps.TestDeps
 
 buildscript {
     repositories {
@@ -46,21 +44,7 @@ subprojects {
             }
 
             dependencies {
-                implementation(
-                        Deps.kotlin,
-                        Deps.kotlinCoroutines,
-                        Deps.kotlinCoroutinesAndroid,
-                        Deps.androidxCompat,
-                        Deps.koinAndroid,
-                )
-
-                testImplementation(
-                        TestDeps.junit,
-                        TestDeps.googleTruth,
-                        TestDeps.mockk,
-                        TestDeps.coroutines,
-                        TestDeps.androidxCore
-                )
+                implementation(Deps.koinAndroid)
             }
         }
     }

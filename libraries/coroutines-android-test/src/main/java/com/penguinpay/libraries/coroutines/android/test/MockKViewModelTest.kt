@@ -1,8 +1,9 @@
-package com.penguinpay.feature.binaria.testing
+package com.penguinpay.libraries.coroutines.android.test
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.penguinpay.libraries.coroutines.android.CoroutinesViewModel
+import com.penguinpay.libraries.coroutines.test.TestCoroutineService
 import io.mockk.MockKAnnotations
 import io.mockk.impl.annotations.InjectMockKs
 import org.junit.After
@@ -20,7 +21,7 @@ abstract class MockKViewModelTest<VM : CoroutinesViewModel<STATE, ACTION>, STATE
 
     protected val actions: ArrayList<ACTION> = arrayListOf()
 
-    private val actionObserver: Observer<ACTION> = Observer { it?.let { actions.add(it) } }
+    private val eventObserver: Observer<ACTION> = Observer { it?.let { actions.add(it) } }
 
     protected val dispatching = TestCoroutineService()
 
@@ -32,7 +33,7 @@ abstract class MockKViewModelTest<VM : CoroutinesViewModel<STATE, ACTION>, STATE
         MockKAnnotations.init(this)
 
         viewModel.state.observeForever(stateObserver)
-        viewModel.action.observeForever(actionObserver)
+        viewModel.action.observeForever(eventObserver)
 
         beforeTest()
     }

@@ -3,7 +3,7 @@ package com.penguinpay.domain.exchange.interactor
 import com.google.common.truth.Truth.assertThat
 import com.penguinpay.domain.exchange.interactor.ExchangeUSDBinaryUseCase.Request
 import com.penguinpay.domain.exchange.interactor.ExchangeUSDBinaryUseCase.Result
-import com.penguinpay.domain.exchange.testing.MockKCoroutinesTest
+import com.penguinpay.libraries.coroutines.test.MockKCoroutinesTest
 import com.penguinpay.libraries.extensions.binary.toBinaryString
 import io.mockk.coEvery
 import io.mockk.coVerifySequence

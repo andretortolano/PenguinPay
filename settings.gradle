@@ -7,20 +7,23 @@ dependencyResolutionManagement {
 }
 
 include ':libraries:coroutines'
+include ':libraries:coroutines-test'
 include ':libraries:coroutines-android'
+include ':libraries:coroutines-android-test'
 include ':libraries:extensions'
+include ':libraries:extensions-android'
 
 include ':data:remote:exchange'
 
 include ':domain:transfer'
 include ':domain:exchange'
 
-include ':features:common'
 include ':features:binaria'
 include ':features:home'
 
-include ':navigation'
-include ':di'
+include ':appNavigation'
+include ':appDependencyInjection'
+include ':appDesignSystem'
 include ':app'
 
 rootProject.name = "PenguinPay"

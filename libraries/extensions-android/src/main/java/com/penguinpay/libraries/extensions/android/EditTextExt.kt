@@ -1,4 +1,4 @@
-package com.penguinpay.common.extensions
+package com.penguinpay.libraries.extensions.android
 
 import android.text.Editable
 import android.text.TextWatcher

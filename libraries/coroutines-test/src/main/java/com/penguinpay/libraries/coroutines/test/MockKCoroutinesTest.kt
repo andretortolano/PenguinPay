@@ -1,4 +1,4 @@
-package com.penguinpay.domain.exchange.testing
+package com.penguinpay.libraries.coroutines.test
 
 import io.mockk.MockKAnnotations
 import org.junit.After

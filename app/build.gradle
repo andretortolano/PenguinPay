@@ -23,13 +23,13 @@ android {
 dependencies {
 
     implementation(
-            project(LocalDeps.navigation),
-            project(LocalDeps.di),
+            project(LocalDeps.appDependencyInjection),
+            project(LocalDeps.appDesignSystem),
+            project(LocalDeps.appNavigation),
             project(LocalDeps.libCoroutines)
     )
 
     implementation(
-            project(LocalDeps.featureCommon),
             project(LocalDeps.featureHome),
             project(LocalDeps.featureBinaria)
     )

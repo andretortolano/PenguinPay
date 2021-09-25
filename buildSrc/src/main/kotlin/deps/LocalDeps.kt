@@ -1,14 +1,17 @@
 package deps
 
 object LocalDeps {
-    const val navigation = ":navigation"
-    const val di = ":di"
+    const val appNavigation = ":appNavigation"
+    const val appDependencyInjection = ":appDependencyInjection"
+    const val appDesignSystem = ":appDesignSystem"
 
     const val libCoroutines = ":libraries:coroutines"
+    const val libCoroutinesTest = ":libraries:coroutines-test"
     const val libCoroutinesAndroid = ":libraries:coroutines-android"
+    const val libCoroutinesAndroidTest = ":libraries:coroutines-android-test"
     const val libExtensions = ":libraries:extensions"
+    const val libExtensionsAndroid = ":libraries:extensions-android"
 
-    const val featureCommon = ":features:common"
     const val featureHome = ":features:home"
     const val featureBinaria = ":features:binaria"
 

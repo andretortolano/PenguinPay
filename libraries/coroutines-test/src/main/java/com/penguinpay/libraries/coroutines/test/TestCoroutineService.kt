@@ -1,4 +1,4 @@
-package com.penguinpay.domain.exchange.testing
+package com.penguinpay.libraries.coroutines.test
 
 import com.penguinpay.libraries.coroutines.CoroutineService
 import kotlinx.coroutines.CoroutineDispatcher

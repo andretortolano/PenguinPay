@@ -11,5 +11,5 @@ java {
 }
 
 dependencies {
-    implementation(Deps.kotlinCoroutines)
+    api Deps.kotlinCoroutines
 }
