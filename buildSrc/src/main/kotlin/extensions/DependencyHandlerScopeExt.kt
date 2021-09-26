@@ -1,3 +1,5 @@
+@file:Suppress("RemoveRedundantBackticks")
+
 package extensions
 
 import org.gradle.api.artifacts.Dependency

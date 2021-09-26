@@ -1,9 +1,0 @@
-import deps.Deps
-
-plugins {
-    id 'kotlin-module'
-}
-
-dependencies {
-    implementation Deps.koin
-}

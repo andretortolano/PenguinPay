@@ -10,6 +10,11 @@ buildscript {
     }
 }
 
+/**
+ * This lets us use gradle.kts files inside folded libraries like ":libraries:coroutines"
+ */
+subprojects { parent!!.path.takeIf { it != rootProject.path }?.let { evaluationDependsOn(it)  } }
+
 tasks.register("clean", Delete::class){
     delete(rootProject.buildDir)
 }
