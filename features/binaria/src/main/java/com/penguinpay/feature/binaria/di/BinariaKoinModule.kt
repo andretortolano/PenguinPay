@@ -11,7 +11,7 @@ import com.penguinpay.feature.binaria.ui.BinariaViewModel
 import com.penguinpay.feature.binaria.ui.countryselect.CountrySelectionViewModel
 import com.penguinpay.feature.binaria.ui.receipt.ReceiptViewModel
 import com.penguinpay.feature.binaria.ui.recipientinfo.RecipientInfoViewModel
-import com.penguinpay.feature.binaria.ui.send.SendRecipientViewModel
+import com.penguinpay.feature.binaria.ui.send.SendViewModel
 import com.penguinpay.navigation.BinariaNavigation
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
@@ -42,7 +42,7 @@ class BinariaKoinModule : KoinModule {
             val exchangeRateGateway = BinariaExchangeRateGateway(get())
             val exchangeUSDUseCase = ExchangeUSDUseCase(get(), exchangeRateGateway)
 
-            SendRecipientViewModel(
+            SendViewModel(
                 coroutineService = get(),
                 exchangeUSDBinaryUseCase = ExchangeUSDBinaryUseCase(get(), exchangeUSDUseCase),
                 sendTransferUSDBinaryUseCase = SendTransferUSDBinaryUseCase(get())

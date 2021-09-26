@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/sendRecipientFragment"
-        android:name="com.penguinpay.feature.binaria.ui.send.SendRecipientFragment"
+        android:name="com.penguinpay.feature.binaria.ui.send.SendFragment"
         android:label="fragment_send_recipient"
         tools:layout="@layout/fragment_send_recipient">
         <action

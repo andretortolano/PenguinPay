@@ -3,18 +3,18 @@ package com.penguinpay.feature.binaria.ui.send
 import com.penguinpay.domain.exchange.interactor.ExchangeUSDBinaryUseCase
 import com.penguinpay.domain.transfer.interactor.SendTransferUSDBinaryUseCase
 import com.penguinpay.domain.transfer.entity.TransferReceiptEntity
-import com.penguinpay.feature.binaria.ui.send.SendRecipientViewModel.SendRecipientViewAction
-import com.penguinpay.feature.binaria.ui.send.SendRecipientViewModel.SendRecipientViewState
+import com.penguinpay.feature.binaria.ui.send.SendViewModel.SendViewAction
+import com.penguinpay.feature.binaria.ui.send.SendViewModel.SendViewState
 import com.penguinpay.libraries.coroutines.CoroutineService
 import com.penguinpay.libraries.coroutines.android.CoroutinesViewModel
 
-internal class SendRecipientViewModel(
+internal class SendViewModel(
     coroutineService: CoroutineService,
     private val exchangeUSDBinaryUseCase: ExchangeUSDBinaryUseCase,
     private val sendTransferUSDBinaryUseCase: SendTransferUSDBinaryUseCase
-) : CoroutinesViewModel<SendRecipientViewState, SendRecipientViewAction>(coroutineService, SendRecipientViewState()) {
+) : CoroutinesViewModel<SendViewState, SendViewAction>(coroutineService, SendViewState()) {
 
-    data class SendRecipientViewState(
+    data class SendViewState(
         val isLoadingExchangeValue: Boolean = false,
         val isFormValid: Boolean = false,
         val isSending: Boolean = false,
@@ -22,10 +22,10 @@ internal class SendRecipientViewModel(
         val recipientBinary: String = String(),
     )
 
-    sealed class SendRecipientViewAction {
-        data class SendTransfer(val receipt: TransferReceiptEntity) : SendRecipientViewAction()
-        object NumberNotBinaryError : SendRecipientViewAction()
-        object SomethingWentWrong : SendRecipientViewAction()
+    sealed class SendViewAction {
+        data class SendTransfer(val receipt: TransferReceiptEntity) : SendViewAction()
+        object NumberNotBinaryError : SendViewAction()
+        object SomethingWentWrong : SendViewAction()
     }
 
     fun onUSDBinaryChanged(usdBinary: String, toCurrency: String) {
@@ -42,10 +42,10 @@ internal class SendRecipientViewModel(
             exchangeUSDBinaryUseCase(ExchangeUSDBinaryUseCase.Request(toCurrency, usdBinary)).run {
                 when (this) {
                     ExchangeUSDBinaryUseCase.Result.AmountIsNotBinaryError -> {
-                        _action.value = SendRecipientViewAction.NumberNotBinaryError
+                        _action.value = SendViewAction.NumberNotBinaryError
                     }
                     ExchangeUSDBinaryUseCase.Result.SomethingWentWrong -> {
-                        _action.value = SendRecipientViewAction.SomethingWentWrong
+                        _action.value = SendViewAction.SomethingWentWrong
                     }
                     is ExchangeUSDBinaryUseCase.Result.Success -> {
                         _state.value = stateValue.copy(
@@ -76,7 +76,7 @@ internal class SendRecipientViewModel(
             )
 
             _state.value = stateValue.copy(isSending = false)
-            _action.value = SendRecipientViewAction.SendTransfer(receipt)
+            _action.value = SendViewAction.SendTransfer(receipt)
         }
     }
 }

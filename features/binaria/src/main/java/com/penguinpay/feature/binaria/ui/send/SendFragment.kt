@@ -17,12 +17,12 @@ import kotlinx.coroutines.flow.onEach
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-internal class SendRecipientFragment : Fragment() {
+internal class SendFragment : Fragment() {
 
     private var _binding: FragmentSendRecipientBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: SendRecipientViewModel by viewModel()
+    private val viewModel: SendViewModel by viewModel()
     private val sharedViewModel: BinariaViewModel by sharedViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -58,7 +58,7 @@ internal class SendRecipientFragment : Fragment() {
         viewModel.action.observe(viewLifecycleOwner, { it?.let { handleAction(it) } })
     }
 
-    private fun renderState(state: SendRecipientViewModel.SendRecipientViewState) {
+    private fun renderState(state: SendViewModel.SendViewState) {
         with(binding) {
             loadingExchange.isVisible = state.isLoadingExchangeValue
             sendDescription.isVisible = state.isLoadingExchangeValue.not() && state.isFormValid
@@ -76,11 +76,11 @@ internal class SendRecipientFragment : Fragment() {
         }
     }
 
-    private fun handleAction(action: SendRecipientViewModel.SendRecipientViewAction) {
+    private fun handleAction(action: SendViewModel.SendViewAction) {
         when (action) {
-            is SendRecipientViewModel.SendRecipientViewAction.SendTransfer -> sharedViewModel.onTransactionSent(action.receipt)
-            SendRecipientViewModel.SendRecipientViewAction.NumberNotBinaryError -> sendToast(R.string.send_recipient_not_binary_error)
-            SendRecipientViewModel.SendRecipientViewAction.SomethingWentWrong -> sendToast(R.string.send_recipient_something_went_wrong)
+            is SendViewModel.SendViewAction.SendTransfer -> sharedViewModel.onTransactionSent(action.receipt)
+            SendViewModel.SendViewAction.NumberNotBinaryError -> sendToast(R.string.send_recipient_not_binary_error)
+            SendViewModel.SendViewAction.SomethingWentWrong -> sendToast(R.string.send_recipient_something_went_wrong)
         }
     }
 
