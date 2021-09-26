@@ -1,4 +1,4 @@
-package com.penguinpay.domain.transfer
+package com.penguinpay.domain.transfer.interactor
 
 import com.penguinpay.domain.transfer.entity.TransferReceiptEntity
 import com.penguinpay.libraries.coroutines.CoroutineService
@@ -15,8 +15,11 @@ class SendTransferUSDBinaryUseCase(private val coroutines: CoroutineService) {
         val receivedBinary: String,
     )
 
+    /**
+     * This is just a Mock data for the sample
+     */
     suspend operator fun invoke(request: Request): TransferReceiptEntity = withContext(coroutines.IO) {
-        delay(2000)
+        delay(1000)
         return@withContext TransferReceiptEntity(
             recipientName = request.recipientName,
             recipientPhone = request.recipientPhone,

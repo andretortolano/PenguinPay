@@ -6,28 +6,18 @@ import com.penguinpay.domain.exchange.gateway.ExchangeRateGateway
 
 class BinariaExchangeRateGateway(private val remoteSource: ExchangeRemoteSource) : ExchangeRateGateway {
 
-    private data class Exchange(
-        val fromCurrency: String,
-        val toCurrency: String,
-        val rate: Double
-    )
+    private var list = arrayListOf<ExchangeRateDTO>()
 
-    private var list = arrayListOf<Exchange>()
-
-    private fun findInMemoryExchange(fromCurrency: String, toCurrency: String): Exchange? {
-        return list.firstOrNull { it.fromCurrency == fromCurrency && it.toCurrency == toCurrency }
+    private fun findInMemoryExchange(fromCurrency: String, toCurrency: String): ExchangeRateDTO? {
+        return list.firstOrNull { it.baseCurrency == fromCurrency && it.exchangeCurrency == toCurrency }
     }
 
     override suspend fun getExchangeRate(fromCurrency: String, toCurrency: String): Double {
-        val exchange = findInMemoryExchange(fromCurrency, toCurrency) ?: run {
-            remoteSource.getExchangeRates(fromCurrency, toCurrency).toExchange().apply {
-                list.add(this)
+        return findInMemoryExchange(fromCurrency, toCurrency)?.rate
+            ?: run {
+                remoteSource.getExchangeRates(fromCurrency, toCurrency).also {
+                    list.add(it)
+                }.rate
             }
-        }
-        return exchange.rate
-    }
-
-    private fun ExchangeRateDTO.toExchange(): Exchange {
-        return Exchange(baseCurrency, exchangeCurrency, rate)
     }
 }

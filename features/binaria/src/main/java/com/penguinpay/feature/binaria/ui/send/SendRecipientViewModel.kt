@@ -1,9 +1,8 @@
 package com.penguinpay.feature.binaria.ui.send
 
 import com.penguinpay.domain.exchange.interactor.ExchangeUSDBinaryUseCase
-import com.penguinpay.domain.transfer.SendTransferUSDBinaryUseCase
+import com.penguinpay.domain.transfer.interactor.SendTransferUSDBinaryUseCase
 import com.penguinpay.domain.transfer.entity.TransferReceiptEntity
-import com.penguinpay.feature.binaria.ui.BinariaViewModel
 import com.penguinpay.feature.binaria.ui.send.SendRecipientViewModel.SendRecipientViewAction
 import com.penguinpay.feature.binaria.ui.send.SendRecipientViewModel.SendRecipientViewState
 import com.penguinpay.libraries.coroutines.CoroutineService

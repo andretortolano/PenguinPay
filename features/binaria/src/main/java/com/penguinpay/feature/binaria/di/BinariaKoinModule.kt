@@ -4,7 +4,7 @@ import com.penguinpay.di.KoinModule
 import com.penguinpay.domain.exchange.interactor.ExchangeUSDBinaryUseCase
 import com.penguinpay.domain.exchange.interactor.ExchangeUSDUseCase
 import com.penguinpay.domain.exchange.interactor.GetExchangeCountriesUseCase
-import com.penguinpay.domain.transfer.SendTransferUSDBinaryUseCase
+import com.penguinpay.domain.transfer.interactor.SendTransferUSDBinaryUseCase
 import com.penguinpay.feature.binaria.Navigation
 import com.penguinpay.feature.binaria.gateway.BinariaExchangeRateGateway
 import com.penguinpay.feature.binaria.ui.BinariaViewModel

@@ -13,5 +13,6 @@ dependencies {
     projectImplementation(LocalDeps.libCoroutinesAndroid)
     projectImplementation(LocalDeps.libExtensionsAndroid)
 
+    projectTestImplementation(LocalDeps.libCoroutinesTest)
     projectTestImplementation(LocalDeps.libCoroutinesAndroidTest)
 }
