@@ -1,13 +1,14 @@
 package deps
 
 object Deps {
-    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
+    const val kotlinLib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinVersion}"
 
     const val kotlinCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}"
     const val kotlinCoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutines}"
 
     const val androidxConstraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.androidxConstraintLayout}"
     const val androidxCompat = "androidx.appcompat:appcompat:${Versions.androidxCompat}"
+    const val androidxCore = "androidx.core:core-ktx:${Versions.androidxCore}"
 
     const val koin = "io.insert-koin:koin-core:${Versions.koin}"
     const val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"

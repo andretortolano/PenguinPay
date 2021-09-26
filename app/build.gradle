@@ -1,8 +1,7 @@
 import deps.LocalDeps
 
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
+    id 'app-module'
 }
 
 android {

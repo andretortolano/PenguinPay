@@ -1,0 +1,25 @@
+import deps.Deps
+
+android {
+    compileSdkVersion GradleConfig.targetSdk
+
+    defaultConfig {
+        minSdkVersion GradleConfig.minSdk
+        targetSdkVersion GradleConfig.targetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+dependencies {
+    implementation(Deps.koinAndroid)
+}

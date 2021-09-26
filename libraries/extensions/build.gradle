@@ -1,13 +1,7 @@
 import deps.TestDeps
 
 plugins {
-    id 'java-library'
-    id 'kotlin'
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    id 'kotlin-module'
 }
 
 dependencies {
