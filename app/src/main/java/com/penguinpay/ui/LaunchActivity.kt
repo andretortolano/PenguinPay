@@ -6,7 +6,7 @@ import com.penguinpay.R
 import com.penguinpay.navigation.HomeNavigation
 import org.koin.android.ext.android.inject
 
-class LaunchActivity : AppCompatActivity() {
+internal class LaunchActivity : AppCompatActivity() {
 
     private val homeNavigation: HomeNavigation by inject()
 

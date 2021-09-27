@@ -40,11 +40,13 @@ internal class RecipientInfoViewModelTest : MockKViewModelTest<RecipientInfoView
         } whenViewModel {
             onPhoneChanged("123456789")
         } then {
-            withLastState(2) {
-                assertThat(isFormValid).isEqualTo(false)
-                assertThat(firstNameField).isInstanceOf(FormFieldState.Prune::class.java)
-                assertThat(lastNameField).isInstanceOf(FormFieldState.Prune::class.java)
-                assertThat(phoneField).isInstanceOf(FormFieldState.Valid::class.java)
+            onStates {
+                get(1) {
+                    assertThat(isFormValid).isEqualTo(false)
+                    assertThat(firstNameField).isInstanceOf(FormFieldState.Prune::class.java)
+                    assertThat(lastNameField).isInstanceOf(FormFieldState.Prune::class.java)
+                    assertThat(phoneField).isInstanceOf(FormFieldState.Valid::class.java)
+                }
             }
         }
     }
@@ -54,11 +56,13 @@ internal class RecipientInfoViewModelTest : MockKViewModelTest<RecipientInfoView
         whenViewModel {
             onFirstNameChanged("Andre")
         } then {
-            withLastState(2) {
-                assertThat(isFormValid).isEqualTo(false)
-                assertThat(firstNameField).isInstanceOf(FormFieldState.Valid::class.java)
-                assertThat(lastNameField).isInstanceOf(FormFieldState.Prune::class.java)
-                assertThat(phoneField).isInstanceOf(FormFieldState.Prune::class.java)
+            onStates {
+                get(1) {
+                    assertThat(isFormValid).isEqualTo(false)
+                    assertThat(firstNameField).isInstanceOf(FormFieldState.Valid::class.java)
+                    assertThat(lastNameField).isInstanceOf(FormFieldState.Prune::class.java)
+                    assertThat(phoneField).isInstanceOf(FormFieldState.Prune::class.java)
+                }
             }
         }
     }
@@ -68,11 +72,13 @@ internal class RecipientInfoViewModelTest : MockKViewModelTest<RecipientInfoView
         whenViewModel {
             onLastNameChanged("Andre")
         } then {
-            withLastState(2) {
-                assertThat(isFormValid).isEqualTo(false)
-                assertThat(firstNameField).isInstanceOf(FormFieldState.Prune::class.java)
-                assertThat(lastNameField).isInstanceOf(FormFieldState.Valid::class.java)
-                assertThat(phoneField).isInstanceOf(FormFieldState.Prune::class.java)
+            onStates {
+                get(1) {
+                    assertThat(isFormValid).isEqualTo(false)
+                    assertThat(firstNameField).isInstanceOf(FormFieldState.Prune::class.java)
+                    assertThat(lastNameField).isInstanceOf(FormFieldState.Valid::class.java)
+                    assertThat(phoneField).isInstanceOf(FormFieldState.Prune::class.java)
+                }
             }
         }
     }
@@ -92,8 +98,11 @@ internal class RecipientInfoViewModelTest : MockKViewModelTest<RecipientInfoView
             onFirstNameChanged("Andre")
             onLastNameChanged("Tortolano")
         } then {
-            withLastState(6) {
-                assertThat(isFormValid).isTrue()
+            onStates {
+                hasSize(6)
+                getLast() and {
+                    assertThat(isFormValid).isTrue()
+                }
             }
         }
     }
@@ -114,9 +123,8 @@ internal class RecipientInfoViewModelTest : MockKViewModelTest<RecipientInfoView
         } whenViewModel {
             onContinueButtonClick()
         } then {
-            withLastAction(1) {
-                assertThat(this).isInstanceOf(RecipientInfoViewAction.GoNext::class.java)
-                with(this as RecipientInfoViewAction.GoNext) {
+            onActions {
+                get(0) isA RecipientInfoViewAction.GoNext::class and {
                     assertThat(firstName).isEqualTo("Andre")
                     assertThat(lastName).isEqualTo("Tortolano")
                     assertThat(phone).isEqualTo("123456789")

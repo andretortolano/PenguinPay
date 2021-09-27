@@ -2,78 +2,35 @@ package com.penguinpay.libraries.coroutines.android.test.block
 
 import com.google.common.truth.Truth.assertThat
 
-@Suppress("unused")
-class ViewModelThenBlock<STATE, ACTION>(private val states: ArrayList<STATE>, private val actions: ArrayList<ACTION>) {
+@Suppress("unused", "MemberVisibilityCanBePrivate")
+class ViewModelThenBlock<STATE : Any, ACTION : Any>(private val states: ArrayList<STATE>, private val actions: ArrayList<ACTION>) {
 
     private var isStateSizeVerified = false
     private var isActionSizeVerified = false
 
-    fun withBlock(block: ViewModelThenBlock<STATE, ACTION>.() -> Unit) {
+    internal fun withBlock(block: ViewModelThenBlock<STATE, ACTION>.() -> Unit) {
         block()
 
         if (isStateSizeVerified.not()) {
-            assertStatesIsEmpty()
+            assertThat(states).isEmpty()
         }
 
         if (isActionSizeVerified.not()) {
-            assertActionsIsEmpty()
+            assertThat(actions).isEmpty()
         }
     }
 
-    private fun assertStatesIsEmpty() {
-        assertThat(states).isEmpty()
+    infix fun ViewModelThenBlock<STATE, ACTION>.onStates(block: ViewStateThenBlock<STATE>.() -> Unit): ViewModelThenBlock<STATE, ACTION> {
+        return with(ViewStateThenBlock(states) { isStateSizeVerified = true }) {
+            block()
+            return@with this@ViewModelThenBlock
+        }
     }
 
-    /**
-     * assert actions size is empty
-     */
-    private fun assertActionsIsEmpty() {
-        assertThat(actions).isEmpty()
-    }
-
-    /**
-     * assert states size counting out the initial state
-     */
-    fun ViewModelThenBlock<STATE, ACTION>.assertStatesSize(expected: Int) {
-        assertThat(states.size).isEqualTo(expected)
-        isStateSizeVerified = true
-    }
-
-    /**
-     * assert states size
-     */
-    fun ViewModelThenBlock<STATE, ACTION>.assertActionsSize(expected: Int) {
-        assertThat(actions.size).isEqualTo(expected)
-        isActionSizeVerified = true
-    }
-
-    /**
-     * with state
-     */
-    fun <R> ViewModelThenBlock<STATE, ACTION>.withState(position: Int, block: STATE.() -> R): R {
-        return with(states[position], block)
-    }
-
-    /**
-     * with last state if not the initial state
-     */
-    fun <R> ViewModelThenBlock<STATE, ACTION>.withLastState(size: Int, block: STATE.() -> R): R {
-        assertStatesSize(size)
-        return with(states.last(), block)
-    }
-
-    /**
-     * with action
-     */
-    fun <R> ViewModelThenBlock<STATE, ACTION>.withAction(position: Int, block: ACTION.() -> R): R {
-        return with(actions[position], block)
-    }
-
-    /**
-     * with last action
-     */
-    fun <R> ViewModelThenBlock<STATE, ACTION>.withLastAction(size: Int, block: ACTION.() -> R): R {
-        assertActionsSize(size)
-        return with(actions.last(), block)
+    infix fun ViewModelThenBlock<STATE, ACTION>.onActions(block: ViewActionThenBlock<ACTION>.() -> Unit): ViewModelThenBlock<STATE, ACTION> {
+        return with(ViewActionThenBlock(actions) { isActionSizeVerified = true }) {
+            block()
+            return@with this@ViewModelThenBlock
+        }
     }
 }

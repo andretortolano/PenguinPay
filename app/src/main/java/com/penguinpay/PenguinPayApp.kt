@@ -9,7 +9,8 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.logger.PrintLogger
 
-class PenguinPayApp : Application() {
+@Suppress("unused")
+internal class PenguinPayApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -19,7 +20,7 @@ class PenguinPayApp : Application() {
 
     private fun initDependencyInjection() {
         startKoin {
-            if(BuildConfig.DEBUG) {
+            if (BuildConfig.DEBUG) {
                 logger(PrintLogger())
             }
 

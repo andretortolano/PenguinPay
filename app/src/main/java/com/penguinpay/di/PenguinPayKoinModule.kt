@@ -7,6 +7,6 @@ import org.koin.dsl.module
 
 internal class PenguinPayKoinModule : KoinModule {
     override val module: Module = module {
-        single<com.penguinpay.libraries.coroutines.CoroutineService> { AppCoroutineService() }
+        single<CoroutineService> { AppCoroutineService() }
     }
 }

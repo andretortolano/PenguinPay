@@ -18,8 +18,8 @@ internal class BinariaViewModelTest : MockKViewModelTest<BinariaViewModel, Binar
         whenViewModel {
             onCountrySelected(country)
         } then {
-            withLastAction(1) {
-                assertThat(this).isInstanceOf(BinariaViewAction.NavigateToRecipientInfo::class.java)
+            onActions {
+                get(0) isA BinariaViewAction.NavigateToRecipientInfo::class
             }
 
             assertThat(viewModel.country).isEqualTo(country)
@@ -38,8 +38,8 @@ internal class BinariaViewModelTest : MockKViewModelTest<BinariaViewModel, Binar
         } whenViewModel {
             onRecipientInfoFilled(firstName, lastName, phone)
         } then {
-            withLastAction(1) {
-                assertThat(this).isInstanceOf(BinariaViewAction.NavigateToSendRecipient::class.java)
+            onActions {
+                get(0) isA BinariaViewAction.NavigateToSendRecipient::class
             }
         }
     }
@@ -51,8 +51,8 @@ internal class BinariaViewModelTest : MockKViewModelTest<BinariaViewModel, Binar
         whenViewModel {
             onTransactionSent(receipt)
         } then {
-            withLastAction(1) {
-                assertThat(this).isInstanceOf(BinariaViewAction.NavigateToReceipt::class.java)
+            onActions {
+                get(0) isA BinariaViewAction.NavigateToReceipt::class
             }
 
             assertThat(viewModel.receipt).isEqualTo(receipt)

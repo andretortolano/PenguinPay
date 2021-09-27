@@ -13,8 +13,10 @@ internal class ReceiptViewModelTest : MockKViewModelTest<ReceiptViewModel, Recei
         whenViewModel {
             onBackPressed()
         } then {
-            withLastAction(1) {
-                assertThat(this).isInstanceOf(ReceiptViewAction.Close::class.java)
+            onActions {
+                get(0) and {
+                    assertThat(this).isInstanceOf(ReceiptViewAction.Close::class.java)
+                }
             }
         }
     }
@@ -24,8 +26,10 @@ internal class ReceiptViewModelTest : MockKViewModelTest<ReceiptViewModel, Recei
         whenViewModel {
             onCloseClick()
         } then {
-            withLastAction(1) {
-                assertThat(this).isInstanceOf(ReceiptViewAction.Close::class.java)
+            onActions {
+                get(0) and {
+                    assertThat(this).isInstanceOf(ReceiptViewAction.Close::class.java)
+                }
             }
         }
     }

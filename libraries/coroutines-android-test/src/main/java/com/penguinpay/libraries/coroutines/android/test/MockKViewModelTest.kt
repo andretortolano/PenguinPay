@@ -13,7 +13,7 @@ import org.junit.Before
 import org.junit.Rule
 
 @Suppress("unused")
-abstract class MockKViewModelTest<VM : CoroutinesViewModel<STATE, ACTION>, STATE, ACTION> {
+abstract class MockKViewModelTest<VM : CoroutinesViewModel<STATE, ACTION>, STATE : Any, ACTION : Any> {
 
     @get:Rule
     val rule = InstantTaskExecutorRule()
@@ -45,28 +45,28 @@ abstract class MockKViewModelTest<VM : CoroutinesViewModel<STATE, ACTION>, STATE
         // Override when needed
     }
 
-    fun MockKViewModelTest<VM, STATE, ACTION>.given(block: () -> Unit): ViewModelGivenBlock<VM, STATE, ACTION> {
-        return with(ViewModelGivenBlock(viewModel)) {
+    fun MockKViewModelTest<VM, STATE, ACTION>.withInitState(block: STATE.() -> Unit) {
+        viewModel.state.observeForever(block)
+    }
+
+    fun MockKViewModelTest<VM, STATE, ACTION>.given(block: () -> Unit): ViewModelGivenBlock {
+        return ViewModelGivenBlock().let {
             block()
-            return@with this
+            it
         }
     }
 
-    infix fun MockKViewModelTest<VM, STATE, ACTION>.whenViewModel(block: VM.() -> Unit): ViewModelWhenBlock<VM, STATE, ACTION> {
+    fun MockKViewModelTest<VM, STATE, ACTION>.whenViewModel(block: VM.() -> Unit): ViewModelWhenBlock<VM, STATE, ACTION> {
         return ViewModelWhenBlock(viewModel).let { whenBlock ->
-            with(viewModel) {
-                block()
-                whenBlock
-            }
+            viewModel.block()
+            whenBlock
         }
     }
 
-    infix fun ViewModelGivenBlock<VM, STATE, ACTION>.whenViewModel(block: VM.() -> Unit): ViewModelWhenBlock<VM, STATE, ACTION> {
+    infix fun ViewModelGivenBlock.whenViewModel(block: VM.() -> Unit): ViewModelWhenBlock<VM, STATE, ACTION> {
         return ViewModelWhenBlock(viewModel).let { whenBlock ->
-            with(viewModel) {
-                block()
-                whenBlock
-            }
+            viewModel.block()
+            whenBlock
         }
     }
 

@@ -8,7 +8,7 @@ import com.penguinpay.feature.home.databinding.HomeActivityBinding
 import com.penguinpay.navigation.BinariaNavigation
 import org.koin.android.ext.android.inject
 
-class HomeActivity : AppCompatActivity() {
+internal class HomeActivity : AppCompatActivity() {
 
     companion object {
         fun getIntent(context: Context): Intent {

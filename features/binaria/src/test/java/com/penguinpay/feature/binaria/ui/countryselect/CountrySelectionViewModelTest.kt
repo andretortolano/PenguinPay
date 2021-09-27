@@ -18,6 +18,13 @@ internal class CountrySelectionViewModelTest :
     private lateinit var getExchangeCountriesUseCase: GetExchangeCountriesUseCase
 
     @Test
+    fun `viewModel Init States`() {
+        withInitState {
+            assertThat(this).isInstanceOf(CountrySelectionViewState.Loading::class.java)
+        }
+    }
+
+    @Test
     fun `onStart SHOULD set Loading AND set Success WHEN getExchangeCountries returns`() {
         val entity1 = mockk<ExchangeCountryEntity>()
         val entity2 = mockk<ExchangeCountryEntity>()
@@ -27,13 +34,10 @@ internal class CountrySelectionViewModelTest :
         } whenViewModel {
             onStart()
         } then {
-            assertStatesSize(2)
-            withState(0) {
-                assertThat(this).isInstanceOf(CountrySelectionViewState.Loading::class.java)
-            }
-            withState(1) {
-                assertThat(this).isInstanceOf(CountrySelectionViewState.Success::class.java)
-                (this as CountrySelectionViewState.Success).run {
+            onStates {
+                hasSize(2)
+                get(0) isA CountrySelectionViewState.Loading::class
+                get(1) isA CountrySelectionViewState.Success::class and {
                     assertThat(countryList).isEqualTo(list)
                 }
             }
