@@ -10,29 +10,23 @@ internal class ReceiptViewModelTest : MockKViewModelTest<ReceiptViewModel, Recei
 
     @Test
     fun `onBackPressed SHOULD send Close`() {
-        // When
-        viewModel.onBackPressed()
-        // Then
-        with(states) {
-            assertThat(size).isEqualTo(1)
-        }
-        with(actions) {
-            assertThat(size).isEqualTo(1)
-            assertThat(this[0]).isInstanceOf(ReceiptViewAction.Close::class.java)
+        whenViewModel {
+            onBackPressed()
+        } then {
+            withLastAction(1) {
+                assertThat(this).isInstanceOf(ReceiptViewAction.Close::class.java)
+            }
         }
     }
 
     @Test
     fun `onCloseClick SHOULD send Close`() {
-        // When
-        viewModel.onCloseClick()
-        // Then
-        with(states) {
-            assertThat(size).isEqualTo(1)
-        }
-        with(actions) {
-            assertThat(size).isEqualTo(1)
-            assertThat(this[0]).isInstanceOf(ReceiptViewAction.Close::class.java)
+        whenViewModel {
+            onCloseClick()
+        } then {
+            withLastAction(1) {
+                assertThat(this).isInstanceOf(ReceiptViewAction.Close::class.java)
+            }
         }
     }
 }

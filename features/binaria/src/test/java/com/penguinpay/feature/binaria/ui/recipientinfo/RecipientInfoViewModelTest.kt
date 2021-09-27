@@ -40,8 +40,7 @@ internal class RecipientInfoViewModelTest : MockKViewModelTest<RecipientInfoView
         } whenViewModel {
             onPhoneChanged("123456789")
         } then {
-            assertStatesSize(2)
-            withState {
+            withLastState(2) {
                 assertThat(isFormValid).isEqualTo(false)
                 assertThat(firstNameField).isInstanceOf(FormFieldState.Prune::class.java)
                 assertThat(lastNameField).isInstanceOf(FormFieldState.Prune::class.java)
@@ -55,8 +54,7 @@ internal class RecipientInfoViewModelTest : MockKViewModelTest<RecipientInfoView
         whenViewModel {
             onFirstNameChanged("Andre")
         } then {
-            assertStatesSize(2)
-            withState {
+            withLastState(2) {
                 assertThat(isFormValid).isEqualTo(false)
                 assertThat(firstNameField).isInstanceOf(FormFieldState.Valid::class.java)
                 assertThat(lastNameField).isInstanceOf(FormFieldState.Prune::class.java)
@@ -70,8 +68,7 @@ internal class RecipientInfoViewModelTest : MockKViewModelTest<RecipientInfoView
         whenViewModel {
             onLastNameChanged("Andre")
         } then {
-            assertStatesSize(2)
-            withState {
+            withLastState(2) {
                 assertThat(isFormValid).isEqualTo(false)
                 assertThat(firstNameField).isInstanceOf(FormFieldState.Prune::class.java)
                 assertThat(lastNameField).isInstanceOf(FormFieldState.Valid::class.java)
@@ -95,7 +92,7 @@ internal class RecipientInfoViewModelTest : MockKViewModelTest<RecipientInfoView
             onFirstNameChanged("Andre")
             onLastNameChanged("Tortolano")
         } then {
-            withState {
+            withLastState(6) {
                 assertThat(isFormValid).isTrue()
             }
         }
@@ -117,8 +114,7 @@ internal class RecipientInfoViewModelTest : MockKViewModelTest<RecipientInfoView
         } whenViewModel {
             onContinueButtonClick()
         } then {
-            assertActionsSize(1)
-            withAction {
+            withLastAction(1) {
                 assertThat(this).isInstanceOf(RecipientInfoViewAction.GoNext::class.java)
                 with(this as RecipientInfoViewAction.GoNext) {
                     assertThat(firstName).isEqualTo("Andre")

@@ -6,7 +6,6 @@ import com.penguinpay.domain.transfer.entity.TransferReceiptEntity
 import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewAction
 import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewState
 import com.penguinpay.libraries.coroutines.android.test.MockKViewModelTest
-import io.mockk.every
 import io.mockk.mockk
 import org.junit.Test
 
@@ -19,7 +18,7 @@ internal class BinariaViewModelTest : MockKViewModelTest<BinariaViewModel, Binar
         whenViewModel {
             onCountrySelected(country)
         } then {
-            withAction {
+            withLastAction(1) {
                 assertThat(this).isInstanceOf(BinariaViewAction.NavigateToRecipientInfo::class.java)
             }
 
@@ -29,41 +28,34 @@ internal class BinariaViewModelTest : MockKViewModelTest<BinariaViewModel, Binar
 
     @Test
     fun `onRecipientInfoFilled SHOULD send NavigateToSendRecipient AND set completeName AND set completePhone`() {
-        // Given
         val phonePrefix = "+55"
         val firstName = "Andre"
         val lastName = "Tortolano"
         val phone = "1234"
-        val country = ExchangeCountryEntity(String(), String(), phonePrefix, 8)
-        // When
-        viewModel.onCountrySelected(country)
-        viewModel.onRecipientInfoFilled(firstName, lastName, phone)
-        // Then
-        with(states) {
-            assertThat(size).isEqualTo(1)
+
+        given {
+            viewModel.onCountrySelected(ExchangeCountryEntity(String(), String(), phonePrefix, 8))
+        } whenViewModel {
+            onRecipientInfoFilled(firstName, lastName, phone)
+        } then {
+            withLastAction(1) {
+                assertThat(this).isInstanceOf(BinariaViewAction.NavigateToSendRecipient::class.java)
+            }
         }
-        with(actions) {
-            assertThat(size).isEqualTo(2)
-            assertThat(this[1]).isInstanceOf(BinariaViewAction.NavigateToSendRecipient::class.java)
-        }
-        assertThat(viewModel.completeName).isEqualTo("$firstName $lastName")
-        assertThat(viewModel.completePhone).isEqualTo("$phonePrefix$phone")
     }
 
     @Test
     fun `onTransactionSent SHOULD send NavigateToReceipt AND set receipt`() {
-        // Given
         val receipt = mockk<TransferReceiptEntity>()
-        // When
-        viewModel.onTransactionSent(receipt)
-        // Then
-        with(states) {
-            assertThat(size).isEqualTo(1)
+
+        whenViewModel {
+            onTransactionSent(receipt)
+        } then {
+            withLastAction(1) {
+                assertThat(this).isInstanceOf(BinariaViewAction.NavigateToReceipt::class.java)
+            }
+
+            assertThat(viewModel.receipt).isEqualTo(receipt)
         }
-        with(actions) {
-            assertThat(size).isEqualTo(1)
-            assertThat(this[0]).isInstanceOf(BinariaViewAction.NavigateToReceipt::class.java)
-        }
-        assertThat(viewModel.receipt).isEqualTo(receipt)
     }
 }
