@@ -5,6 +5,8 @@ plugins {
     `feature-module`
 }
 
+apply(from = "$rootDir/gradle/jacoco.android.gradle")
+
 dependencies {
     implementation(project(LocalDeps.domainExchange))
     implementation(project(LocalDeps.domainTransfer))
