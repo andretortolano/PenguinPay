@@ -31,7 +31,7 @@ internal class RecipientInfoViewModel(
 
     fun onPhoneChanged(phone: String) {
         with(stateValue) {
-            if (phoneField.isValidEquals(phone).not()) {
+            if (phoneField.isValidAndEquals(phone).not()) {
                 if (phone.length == country.phoneValidSize) {
                     _state.value = copy(phoneField = FormFieldState.Valid(phone))
                 } else {
@@ -45,7 +45,7 @@ internal class RecipientInfoViewModel(
 
     fun onFirstNameChanged(firstName: String) {
         with(stateValue) {
-            if (firstNameField.isValidEquals(firstName).not()) {
+            if (firstNameField.isValidAndEquals(firstName).not()) {
                 if (firstName.isNotBlank()) {
                     _state.value = copy(firstNameField = FormFieldState.Valid(firstName))
                 } else {
@@ -59,7 +59,7 @@ internal class RecipientInfoViewModel(
 
     fun onLastNameChanged(lastName: String) {
         with(stateValue) {
-            if (lastNameField.isValidEquals(lastName).not()) {
+            if (lastNameField.isValidAndEquals(lastName).not()) {
                 if (lastName.isNotBlank()) {
                     _state.value = copy(lastNameField = FormFieldState.Valid(lastName))
                 } else {
@@ -97,5 +97,5 @@ internal class RecipientInfoViewModel(
                 && lastNameField is FormFieldState.Valid
                 && phoneField is FormFieldState.Valid
 
-    private fun <T> FormFieldState<T>.isValidEquals(value: T) = this is FormFieldState.Valid && this.value == value
+    private fun <T> FormFieldState<T>.isValidAndEquals(value: T) = this is FormFieldState.Valid && this.value == value
 }

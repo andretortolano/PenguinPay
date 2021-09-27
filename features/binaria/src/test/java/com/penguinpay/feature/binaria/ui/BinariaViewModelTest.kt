@@ -14,19 +14,17 @@ internal class BinariaViewModelTest : MockKViewModelTest<BinariaViewModel, Binar
 
     @Test
     fun `onCountrySelected SHOULD send NavigateToRecipientInfo AND set country`() {
-        // Given
         val country = mockk<ExchangeCountryEntity>()
-        // When
-        viewModel.onCountrySelected(country)
-        // Then
-        with(states) {
-            assertThat(size).isEqualTo(1)
+
+        whenViewModel {
+            onCountrySelected(country)
+        } then {
+            withAction {
+                assertThat(this).isInstanceOf(BinariaViewAction.NavigateToRecipientInfo::class.java)
+            }
+
+            assertThat(viewModel.country).isEqualTo(country)
         }
-        with(actions) {
-            assertThat(size).isEqualTo(1)
-            assertThat(this[0]).isInstanceOf(BinariaViewAction.NavigateToRecipientInfo::class.java)
-        }
-        assertThat(viewModel.country).isEqualTo(country)
     }
 
     @Test
