@@ -51,7 +51,7 @@ internal class ReceiptFragment : Fragment() {
             sharedViewModel.receipt?.let {
                 recipientNameValue.text = it.recipientName
                 recipientPhoneValue.text = it.recipientPhone
-                recipientSentValue.text = getString(R.string.receipt_recipient_sent_value, it.valueBinary, it.currency)
+                recipientSentValue.text = getString(R.string.receipt_recipient_sent_value, it.amount, it.currency)
             }
         }
     }

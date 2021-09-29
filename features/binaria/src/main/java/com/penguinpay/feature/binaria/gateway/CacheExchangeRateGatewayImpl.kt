@@ -4,7 +4,7 @@ import com.penguinpay.data.remote.exchange.ExchangeRateDTO
 import com.penguinpay.data.remote.exchange.ExchangeRemoteSource
 import com.penguinpay.domain.exchange.gateway.ExchangeRateGateway
 
-class BinariaExchangeRateGateway(private val remoteSource: ExchangeRemoteSource) : ExchangeRateGateway {
+internal class CacheExchangeRateGatewayImpl(private val remoteSource: ExchangeRemoteSource) : ExchangeRateGateway {
 
     private var list = arrayListOf<ExchangeRateDTO>()
 

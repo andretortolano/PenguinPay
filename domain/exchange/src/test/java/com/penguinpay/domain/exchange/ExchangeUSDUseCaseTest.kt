@@ -1,11 +1,8 @@
-package com.penguinpay.domain.exchange.interactor
+package com.penguinpay.domain.exchange
 
 import com.google.common.truth.Truth.assertThat
-import com.penguinpay.domain.exchange.exception.ExchangeRateException
+import com.penguinpay.domain.exchange.ExchangeUSDUseCase.ExchangeUSDRequest
 import com.penguinpay.domain.exchange.gateway.ExchangeRateGateway
-import com.penguinpay.domain.exchange.interactor.ExchangeUSDUseCase.Request
-import com.penguinpay.domain.exchange.interactor.ExchangeUSDUseCase.Result
-import com.penguinpay.libraries.coroutines.test.MockKCoroutinesTest
 import io.mockk.coEvery
 import io.mockk.coVerifySequence
 import io.mockk.impl.annotations.InjectMockKs
@@ -15,7 +12,7 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class ExchangeUSDUseCaseTest : MockKCoroutinesTest() {
+class ExchangeUSDUseCaseTest {
 
     @MockK
     private lateinit var exchangeGateway: ExchangeRateGateway
@@ -29,7 +26,10 @@ class ExchangeUSDUseCaseTest : MockKCoroutinesTest() {
         // Given
         coEvery { exchangeGateway.getExchangeRate("USD", "ABC") } returns 0.0
         // When
-        useCase(Request("ABC", 1.0))
+        ExchangeUSDRequest(
+            currency = "BRA",
+            amount = 1.0,
+        ).let { useCase(it) }
         // Then
         coVerifySequence {
             exchangeGateway.getExchangeRate("USD", "ABC")
@@ -44,19 +44,11 @@ class ExchangeUSDUseCaseTest : MockKCoroutinesTest() {
         val expectedExchanged = 10.0
         coEvery { exchangeGateway.getExchangeRate("USD", "ABC") } returns rate
         // When
-        val result = useCase(Request("ABC", amount))
+        val result = ExchangeUSDRequest(
+            currency = "BRA",
+            amount = amount,
+        ).let { useCase(it) }
         // Then
-        assertThat(result).isEqualTo(Result.Success(expectedExchanged))
-    }
-
-    @Test
-    fun `UseCase SHOULD return SomethingWentWrong`() = runBlockingTest {
-        // Given
-        val amount = 5.0
-        coEvery { exchangeGateway.getExchangeRate("USD", "ABC") } throws ExchangeRateException("A", "B")
-        // When
-        val result = useCase(Request("ABC", amount))
-        // Then
-        assertThat(result).isEqualTo(Result.SomethingWentWrong)
+        assertThat(result.exchangedAmount).isEqualTo(expectedExchanged)
     }
 }

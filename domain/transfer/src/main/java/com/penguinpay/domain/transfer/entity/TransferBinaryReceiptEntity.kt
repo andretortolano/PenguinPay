@@ -1,8 +1,8 @@
 package com.penguinpay.domain.transfer.entity
 
-data class TransferReceiptEntity(
+data class TransferBinaryReceiptEntity(
     val recipientName: String,
     val recipientPhone: String,
-    val amount: Double,
+    val amount: String,
     val currency: String
 )

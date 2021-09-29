@@ -1,6 +1,7 @@
-package com.penguinpay.domain.exchange.interactor
+package com.penguinpay.domain.exchange
 
 import com.google.common.truth.Truth.assertThat
+import com.penguinpay.domain.exchange.GetExchangeCountriesUseCase
 import com.penguinpay.domain.exchange.entity.ExchangeCountryEntity
 import com.penguinpay.libraries.coroutines.test.MockKCoroutinesTest
 import io.mockk.impl.annotations.InjectMockKs
@@ -19,7 +20,7 @@ class GetExchangeCountriesUseCaseTest : MockKCoroutinesTest() {
         // When
         val result = useCase()
         // Then
-        with(result) {
+        with(result.countries) {
             assertThat(size).isEqualTo(4)
             assertThat(get(0)).isEqualTo(ExchangeCountryEntity("Kenya", "KES", "+254", 9))
             assertThat(get(1)).isEqualTo(ExchangeCountryEntity("Nigeria", "NGN", "+234", 7))

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2B2C2F</color>
-    <color name="colorPrimaryDark">#1D1E20</color>
-    <color name="colorAccent">#00B0FF</color>
-    <color name="colorAccentContrast">#000000</color>
-    <color name="colorAccentLight">#A0F0FF</color>
-
-    <color name="white">#FFFFFF</color>
-    <color name="lightGray">#D0D0D0</color>
+    <color name="colorPrimary">@color/almostWhite</color>
+    <color name="colorPrimaryDark">@color/lightGray</color>
+    <color name="colorPrimaryLight">@color/white</color>
+    <color name="colorAccent">@color/cerulean</color>
+    <color name="colorAccentContrast">@color/black</color>
+    <color name="colorAccentLowContrast">@color/outerSpace</color>
+    <color name="colorAccentLight">@color/beauBlue</color>
 </resources>

@@ -6,7 +6,6 @@ import com.penguinpay.data.remote.exchange.ExchangeRemoteSource
 import com.penguinpay.domain.exchange.gateway.ExchangeRateGateway
 import com.penguinpay.libraries.coroutines.test.MockKCoroutinesTest
 import io.mockk.coEvery
-import io.mockk.coVerify
 import io.mockk.coVerifySequence
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -14,11 +13,11 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class BinariaExchangeRateGatewayTest : MockKCoroutinesTest() {
+class CachingNetworkExchangeRateGatewayImplTest : MockKCoroutinesTest() {
 
     private val remoteSource = mockk<ExchangeRemoteSource>()
 
-    private val gateway = BinariaExchangeRateGateway(remoteSource)
+    private val gateway = CacheExchangeRateGatewayImpl(remoteSource)
 
     @Test
     fun `gateway SHOULD extend ExchangeRateGateway`() {

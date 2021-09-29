@@ -2,9 +2,10 @@
 <resources>
 
     <style name="PenguinPay.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="hintTextColor">@color/colorAccent</item>
-        <item name="placeholderTextColor">@color/colorAccent</item>
-        <item name="boxStrokeColor">@color/colorAccent</item>
+        <item name="hintTextColor">@color/colorAccentContrast</item>
+        <item name="boxBackgroundColor">@color/colorPrimaryDark</item>
+        <item name="textOutlineColor">@color/colorPrimaryLight</item>
+        <item name="boxStrokeColor">@color/colorAccentContrast</item>
     </style>
 
 </resources>

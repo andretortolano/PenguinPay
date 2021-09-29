@@ -2,7 +2,8 @@ package com.penguinpay.feature.binaria.ui.countryselect
 
 import com.google.common.truth.Truth.assertThat
 import com.penguinpay.domain.exchange.entity.ExchangeCountryEntity
-import com.penguinpay.domain.exchange.interactor.GetExchangeCountriesUseCase
+import com.penguinpay.domain.exchange.GetExchangeCountriesUseCase
+import com.penguinpay.domain.exchange.GetExchangeCountriesUseCase.GetExchangeCountriesResult
 import com.penguinpay.feature.binaria.ui.countryselect.CountrySelectionViewModel.CountrySelectionViewAction
 import com.penguinpay.feature.binaria.ui.countryselect.CountrySelectionViewModel.CountrySelectionViewState
 import com.penguinpay.libraries.coroutines.android.test.MockKViewModelTest
@@ -15,7 +16,7 @@ internal class CountrySelectionViewModelTest :
     MockKViewModelTest<CountrySelectionViewModel, CountrySelectionViewState, CountrySelectionViewAction>() {
 
     @MockK
-    private lateinit var getExchangeCountriesUseCase: GetExchangeCountriesUseCase
+    private lateinit var model: CountrySelectionModel
 
     @Test
     fun `viewModel Init States`() {
@@ -30,7 +31,7 @@ internal class CountrySelectionViewModelTest :
         val entity2 = mockk<ExchangeCountryEntity>()
         val list = arrayListOf(entity1, entity2)
         given {
-            coEvery { getExchangeCountriesUseCase() } returns list
+            coEvery { model.getExchangeCountries() } returns list
         } whenViewModel {
             onStart()
         } then {

@@ -2,6 +2,7 @@ package com.penguinpay.feature.binaria.ui
 
 import com.google.common.truth.Truth.assertThat
 import com.penguinpay.domain.exchange.entity.ExchangeCountryEntity
+import com.penguinpay.domain.transfer.entity.TransferBinaryReceiptEntity
 import com.penguinpay.domain.transfer.entity.TransferReceiptEntity
 import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewAction
 import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewState
@@ -46,7 +47,7 @@ internal class BinariaViewModelTest : MockKViewModelTest<BinariaViewModel, Binar
 
     @Test
     fun `onTransactionSent SHOULD send NavigateToReceipt AND set receipt`() {
-        val receipt = mockk<TransferReceiptEntity>()
+        val receipt = mockk<TransferBinaryReceiptEntity>()
 
         whenViewModel {
             onTransactionSent(receipt)

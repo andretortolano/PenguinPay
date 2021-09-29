@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="almostWhite">#FBFBFB</color>
+    <color name="lightGray">#D6D6D6</color>
+    <color name="absentWhite">#F6E6D5</color>
+    <color name="beauBlue">#D5E5F6</color>
+    <color name="cerulean">#0AABF1</color>
+    <color name="stormDust">#616360</color>
+    <color name="outerSpace">#292A2A</color>
+    <color name="eeireBlack">#262626</color>
+    <color name="black">#000000</color>
+</resources>

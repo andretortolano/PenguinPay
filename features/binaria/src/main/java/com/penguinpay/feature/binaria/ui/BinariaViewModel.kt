@@ -1,6 +1,7 @@
 package com.penguinpay.feature.binaria.ui
 
 import com.penguinpay.domain.exchange.entity.ExchangeCountryEntity
+import com.penguinpay.domain.transfer.entity.TransferBinaryReceiptEntity
 import com.penguinpay.domain.transfer.entity.TransferReceiptEntity
 import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewAction
 import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewAction.NavigateToRecipientInfo
@@ -16,7 +17,7 @@ internal class BinariaViewModel(
     var country: ExchangeCountryEntity? = null
     var completeName = String()
     var completePhone: String = String()
-    var receipt: TransferReceiptEntity? = null
+    var receipt: TransferBinaryReceiptEntity? = null
 
     class BinariaViewState
 
@@ -42,7 +43,7 @@ internal class BinariaViewModel(
         _action.value = NavigateToSendRecipient
     }
 
-    fun onTransactionSent(receipt: TransferReceiptEntity) {
+    fun onTransactionSent(receipt: TransferBinaryReceiptEntity) {
         this.receipt = receipt
 
         _action.value = BinariaViewAction.NavigateToReceipt

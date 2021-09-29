@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/outerSpace</color>
+    <color name="colorPrimaryDark">@color/eeireBlack</color>
+    <color name="colorPrimaryLight">@color/stormDust</color>
+    <color name="colorAccent">@color/cerulean</color>
+    <color name="colorAccentContrast">@color/white</color>
+    <color name="colorAccentLowContrast">@color/lightGray</color>
+    <color name="colorAccentLight">@color/beauBlue</color>
+</resources>

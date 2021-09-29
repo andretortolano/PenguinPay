@@ -1,11 +1,17 @@
 package com.penguinpay.libraries.extensions.binary
 
 import kotlin.math.pow
+import kotlin.math.roundToInt
 
 fun Int.toBinaryString(): String {
     return Integer.toBinaryString(this)
 }
 
+fun Double.toBinaryString(): String {
+    return roundToInt().toBinaryString()
+}
+
+@Throws(NumberFormatException::class)
 fun String.asBinaryToInt(): Int {
     if(matches("^[0-1]+$".toRegex()).not()) {
         throw NumberFormatException()
@@ -23,4 +29,8 @@ fun String.asBinaryToInt(): Int {
         ++i
     }
     return decimalNumber
+}
+
+fun String.asBinaryToDouble(): Double {
+    return asBinaryToInt().toDouble()
 }
