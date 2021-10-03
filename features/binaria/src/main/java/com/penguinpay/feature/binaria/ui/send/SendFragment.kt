@@ -65,6 +65,7 @@ internal class SendFragment : Fragment() {
 
             sendLoading.isVisible = state.isSending
             sendButton.isVisible = state.isSending.not()
+            sendButton.isEnabled = state.isFormValid
 
             sendDescription.text = getString(
                 R.string.send_recipient_send_description_text,

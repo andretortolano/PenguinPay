@@ -3,8 +3,8 @@
     <color name="colorPrimary">@color/almostWhite</color>
     <color name="colorPrimaryDark">@color/lightGray</color>
     <color name="colorPrimaryLight">@color/white</color>
+    <color name="colorPrimaryContrast">@color/eeireBlack</color>
     <color name="colorAccent">@color/cerulean</color>
-    <color name="colorAccentContrast">@color/black</color>
-    <color name="colorAccentLowContrast">@color/outerSpace</color>
-    <color name="colorAccentLight">@color/beauBlue</color>
+    <color name="colorAccentContrast">@color/almostWhite</color>
+    <color name="colorAccentSecond">@color/beauBlue</color>
 </resources>

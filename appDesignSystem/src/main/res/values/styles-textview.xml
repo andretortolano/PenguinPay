@@ -2,7 +2,7 @@
 <resources>
 
     <style name="PenguinPay.TextView" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textColor">@color/colorAccentLowContrast</item>
+        <item name="android:textColor">@color/colorPrimaryContrast</item>
         <item name="android:textSize">16sp</item>
     </style>
 
