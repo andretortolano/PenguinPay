@@ -1,7 +1,7 @@
 import deps.Deps
 
 plugins {
-    `kotlin-module`
+    plugins.`kotlin-module`
 }
 
 dependencies {

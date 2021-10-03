@@ -1,4 +1,4 @@
-package com.penguinpay.libraries.coroutines.test
+package com.penguinpay.libraries.coroutines.android.test
 
 import io.mockk.MockKAnnotations
 import org.junit.After

@@ -5,7 +5,6 @@ import com.penguinpay.domain.transfer.TransferUSDBinaryUseCase.TransferUSDBinary
 import com.penguinpay.domain.transfer.TransferUSDUseCase.TransferUSDRequest
 import com.penguinpay.domain.transfer.TransferUSDUseCase.TransferUSDResponse
 import com.penguinpay.domain.transfer.entity.TransferReceiptEntity
-import com.penguinpay.libraries.coroutines.test.MockKCoroutinesTest
 import com.penguinpay.libraries.extensions.binary.asBinaryToDouble
 import com.penguinpay.libraries.extensions.binary.toBinaryString
 import io.mockk.MockKAnnotations

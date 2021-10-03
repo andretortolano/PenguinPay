@@ -6,8 +6,6 @@ plugins {
 }
 
 dependencies {
-    implementation(project(LocalDeps.libCoroutines))
-
     api(TestDeps.junit)
     api(TestDeps.googleTruth)
     api(TestDeps.mockk)

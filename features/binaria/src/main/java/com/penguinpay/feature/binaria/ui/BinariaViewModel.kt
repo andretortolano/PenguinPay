@@ -2,12 +2,11 @@ package com.penguinpay.feature.binaria.ui
 
 import com.penguinpay.domain.exchange.entity.ExchangeCountryEntity
 import com.penguinpay.domain.transfer.entity.TransferBinaryReceiptEntity
-import com.penguinpay.domain.transfer.entity.TransferReceiptEntity
 import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewAction
 import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewAction.NavigateToRecipientInfo
 import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewAction.NavigateToSendRecipient
 import com.penguinpay.feature.binaria.ui.BinariaViewModel.BinariaViewState
-import com.penguinpay.libraries.coroutines.CoroutineService
+import com.penguinpay.libraries.coroutines.android.CoroutineService
 import com.penguinpay.libraries.coroutines.android.CoroutinesViewModel
 
 internal class BinariaViewModel(

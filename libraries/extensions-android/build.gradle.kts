@@ -1,7 +1,7 @@
 import deps.Deps
 
 plugins {
-    `android-module`
+    plugins.`android-module`
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).configureEach {

@@ -1,3 +1,3 @@
 plugins {
-    `android-module`
+    plugins.`android-module`
 }

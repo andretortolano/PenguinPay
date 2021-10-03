@@ -4,7 +4,7 @@ import com.penguinpay.domain.exchange.ExchangeUSDBinaryUseCase
 import com.penguinpay.domain.transfer.TransferUSDBinaryUseCase
 import com.penguinpay.domain.transfer.TransferUSDBinaryUseCase.TransferUSDBinaryRequest
 import com.penguinpay.domain.transfer.entity.TransferBinaryReceiptEntity
-import com.penguinpay.libraries.coroutines.CoroutineService
+import com.penguinpay.libraries.coroutines.android.CoroutineService
 import kotlinx.coroutines.withContext
 
 internal class SendModel(

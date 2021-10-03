@@ -1,3 +1,3 @@
 plugins {
-    `domain-module`
+    plugins.`domain-module`
 }

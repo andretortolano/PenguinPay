@@ -2,7 +2,7 @@ package com.penguinpay.feature.binaria.ui.receipt
 
 import com.penguinpay.feature.binaria.ui.receipt.ReceiptViewModel.ReceiptViewAction
 import com.penguinpay.feature.binaria.ui.receipt.ReceiptViewModel.ReceiptViewState
-import com.penguinpay.libraries.coroutines.CoroutineService
+import com.penguinpay.libraries.coroutines.android.CoroutineService
 import com.penguinpay.libraries.coroutines.android.CoroutinesViewModel
 
 internal class ReceiptViewModel(

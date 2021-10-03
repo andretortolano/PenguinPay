@@ -5,9 +5,8 @@
     <application>
         <activity
             android:name=".ui.SplashActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/PenguinPay.SplashTheme"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/PenguinPay.SplashTheme" />
     </application>
 
 </manifest>

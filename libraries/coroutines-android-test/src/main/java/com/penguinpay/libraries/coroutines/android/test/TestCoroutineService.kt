@@ -1,6 +1,6 @@
-package com.penguinpay.libraries.coroutines.test
+package com.penguinpay.libraries.coroutines.android.test
 
-import com.penguinpay.libraries.coroutines.CoroutineService
+import com.penguinpay.libraries.coroutines.android.CoroutineService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 

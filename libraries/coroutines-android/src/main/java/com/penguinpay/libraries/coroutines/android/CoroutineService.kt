@@ -1,4 +1,4 @@
-package com.penguinpay.libraries.coroutines
+package com.penguinpay.libraries.coroutines.android
 
 import kotlinx.coroutines.CoroutineDispatcher
 

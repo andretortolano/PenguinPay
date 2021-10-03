@@ -5,8 +5,6 @@ object LocalDeps {
     const val appDependencyInjection = ":appDependencyInjection"
     const val appDesignSystem = ":appDesignSystem"
 
-    const val libCoroutines = ":libraries:coroutines"
-    const val libCoroutinesTest = ":libraries:coroutines-test"
     const val libCoroutinesAndroid = ":libraries:coroutines-android"
     const val libCoroutinesAndroidTest = ":libraries:coroutines-android-test"
     const val libExtensions = ":libraries:extensions"

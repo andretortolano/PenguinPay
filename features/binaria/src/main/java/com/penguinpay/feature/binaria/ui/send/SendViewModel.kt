@@ -3,7 +3,7 @@ package com.penguinpay.feature.binaria.ui.send
 import com.penguinpay.domain.transfer.entity.TransferBinaryReceiptEntity
 import com.penguinpay.feature.binaria.ui.send.SendViewModel.SendViewAction
 import com.penguinpay.feature.binaria.ui.send.SendViewModel.SendViewState
-import com.penguinpay.libraries.coroutines.CoroutineService
+import com.penguinpay.libraries.coroutines.android.CoroutineService
 import com.penguinpay.libraries.coroutines.android.CoroutinesViewModel
 
 internal class SendViewModel(

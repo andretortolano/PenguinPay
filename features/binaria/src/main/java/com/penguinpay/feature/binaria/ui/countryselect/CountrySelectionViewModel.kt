@@ -3,7 +3,7 @@ package com.penguinpay.feature.binaria.ui.countryselect
 import com.penguinpay.domain.exchange.entity.ExchangeCountryEntity
 import com.penguinpay.feature.binaria.ui.countryselect.CountrySelectionViewModel.CountrySelectionViewAction
 import com.penguinpay.feature.binaria.ui.countryselect.CountrySelectionViewModel.CountrySelectionViewState
-import com.penguinpay.libraries.coroutines.CoroutineService
+import com.penguinpay.libraries.coroutines.android.CoroutineService
 import com.penguinpay.libraries.coroutines.android.CoroutinesViewModel
 
 internal class CountrySelectionViewModel(

@@ -8,8 +8,6 @@ dependencyResolutionManagement {
 }
 
 include(
-    ":libraries:coroutines",
-    ":libraries:coroutines-test",
     ":libraries:coroutines-android",
     ":libraries:coroutines-android-test",
     ":libraries:extensions",

@@ -1,6 +1,5 @@
 package com.penguinpay.libraries.coroutines.android
 
-import com.penguinpay.libraries.coroutines.CoroutineService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job

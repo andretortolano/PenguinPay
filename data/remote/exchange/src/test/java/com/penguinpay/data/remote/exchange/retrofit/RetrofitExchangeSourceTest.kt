@@ -1,22 +1,28 @@
 package com.penguinpay.data.remote.exchange.retrofit
 
 import com.google.common.truth.Truth.assertThat
-import com.penguinpay.libraries.coroutines.test.MockKCoroutinesTest
+import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+import org.junit.Before
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class RetrofitExchangeSourceTest : MockKCoroutinesTest() {
+class RetrofitExchangeSourceTest {
 
     @MockK
     private lateinit var service: OpenExchangeService
 
     @InjectMockKs
     private lateinit var source: RetrofitExchangeSource
+
+    @Before
+    fun setup() {
+        MockKAnnotations.init(this)
+    }
 
     @Test
     fun `getUSDExchangeRates SHOULD return list of ExchangeRateDTO WITH proper values`() = runBlockingTest {

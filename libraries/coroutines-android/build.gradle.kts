@@ -1,13 +1,10 @@
 import deps.Deps
-import deps.LocalDeps
 
 plugins {
-    `android-module`
+    plugins.`android-module`
 }
 
 dependencies {
-    api(project(LocalDeps.libCoroutines))
-
     api(Deps.kotlinLib)
     api(Deps.androidxCore)
     api(Deps.kotlinCoroutines)

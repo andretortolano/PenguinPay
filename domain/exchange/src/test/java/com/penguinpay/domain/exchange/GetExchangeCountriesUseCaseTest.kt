@@ -1,16 +1,14 @@
 package com.penguinpay.domain.exchange
 
 import com.google.common.truth.Truth.assertThat
-import com.penguinpay.domain.exchange.GetExchangeCountriesUseCase
 import com.penguinpay.domain.exchange.entity.ExchangeCountryEntity
-import com.penguinpay.libraries.coroutines.test.MockKCoroutinesTest
 import io.mockk.impl.annotations.InjectMockKs
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class GetExchangeCountriesUseCaseTest : MockKCoroutinesTest() {
+class GetExchangeCountriesUseCaseTest {
 
     @InjectMockKs
     private lateinit var useCase: GetExchangeCountriesUseCase

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <bool name="isLight">true</bool>
     <color name="colorPrimary">@color/almostWhite</color>
     <color name="colorPrimaryDark">@color/lightGray</color>
     <color name="colorPrimaryLight">@color/white</color>

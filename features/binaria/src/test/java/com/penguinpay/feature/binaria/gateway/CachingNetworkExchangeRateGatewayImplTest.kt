@@ -4,7 +4,7 @@ import com.google.common.truth.Truth.assertThat
 import com.penguinpay.data.remote.exchange.ExchangeRateDTO
 import com.penguinpay.data.remote.exchange.ExchangeRemoteSource
 import com.penguinpay.domain.exchange.gateway.ExchangeRateGateway
-import com.penguinpay.libraries.coroutines.test.MockKCoroutinesTest
+import com.penguinpay.libraries.coroutines.android.test.MockKCoroutinesTest
 import io.mockk.coEvery
 import io.mockk.coVerifySequence
 import io.mockk.mockk

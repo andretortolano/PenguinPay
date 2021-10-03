@@ -5,7 +5,7 @@ import com.penguinpay.feature.binaria.ui.recipientinfo.RecipientInfoViewModel.Re
 import com.penguinpay.feature.binaria.ui.recipientinfo.RecipientInfoViewModel.RecipientInfoViewAction.GoNext
 import com.penguinpay.feature.binaria.ui.recipientinfo.RecipientInfoViewModel.RecipientInfoViewState
 import com.penguinpay.feature.binaria.ui.recipientinfo.validator.FormFieldState
-import com.penguinpay.libraries.coroutines.CoroutineService
+import com.penguinpay.libraries.coroutines.android.CoroutineService
 import com.penguinpay.libraries.coroutines.android.CoroutinesViewModel
 
 internal class RecipientInfoViewModel(

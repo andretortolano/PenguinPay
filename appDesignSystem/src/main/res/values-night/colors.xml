@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <bool name="isLight">false</bool>
     <color name="colorPrimary">@color/outerSpace</color>
     <color name="colorPrimaryDark">@color/eeireBlack</color>
     <color name="colorPrimaryLight">@color/stormDust</color>

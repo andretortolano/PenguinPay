@@ -1,9 +1,7 @@
-import extensions.projectImplementation
-
 plugins {
-    `domain-module`
+    plugins.`domain-module`
 }
 
 dependencies {
-    projectImplementation(deps.LocalDeps.domainExchange)
+    implementation(project(deps.LocalDeps.domainExchange))
 }

@@ -27,10 +27,8 @@
             <option value="$PROJECT_DIR$/features/home" />
             <option value="$PROJECT_DIR$/features/splash" />
             <option value="$PROJECT_DIR$/libraries" />
-            <option value="$PROJECT_DIR$/libraries/coroutines" />
             <option value="$PROJECT_DIR$/libraries/coroutines-android" />
             <option value="$PROJECT_DIR$/libraries/coroutines-android-test" />
-            <option value="$PROJECT_DIR$/libraries/coroutines-test" />
             <option value="$PROJECT_DIR$/libraries/extensions" />
             <option value="$PROJECT_DIR$/libraries/extensions-android" />
           </set>

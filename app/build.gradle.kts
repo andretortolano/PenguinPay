@@ -1,7 +1,7 @@
 import deps.LocalDeps
 
 plugins {
-    `app-module`
+    plugins.`app-module`
 }
 
 android {
@@ -26,7 +26,7 @@ dependencies {
     implementation(project(LocalDeps.appDependencyInjection))
     implementation(project(LocalDeps.appDesignSystem))
     implementation(project(LocalDeps.appNavigation))
-    implementation(project(LocalDeps.libCoroutines))
+    implementation(project(LocalDeps.libCoroutinesAndroid))
 
     implementation(project(LocalDeps.featureSplash))
     implementation(project(LocalDeps.featureHome))

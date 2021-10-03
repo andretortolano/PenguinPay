@@ -3,7 +3,6 @@ package com.penguinpay.libraries.coroutines.android
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.penguinpay.libraries.coroutines.CoroutineService
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancelChildren
 

@@ -1,5 +1,9 @@
+package plugins
+
 import deps.LocalDeps
+import deps.TestDeps
 import extensions.projectImplementation
+import extensions.testImplementation
 import extensions.projectTestImplementation
 
 apply(plugin = "com.android.library")
@@ -13,6 +17,7 @@ dependencies {
     projectImplementation(LocalDeps.libCoroutinesAndroid)
     projectImplementation(LocalDeps.libExtensionsAndroid)
 
-    projectTestImplementation(LocalDeps.libCoroutinesTest)
     projectTestImplementation(LocalDeps.libCoroutinesAndroidTest)
+
+    testImplementation(TestDeps.junit)
 }

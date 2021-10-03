@@ -2,7 +2,6 @@ package com.penguinpay.domain.exchange
 
 import com.google.common.truth.Truth.assertThat
 import com.penguinpay.domain.exchange.ExchangeUSDBinaryUseCase.ExchangeUSDBinaryRequest
-import com.penguinpay.libraries.coroutines.test.MockKCoroutinesTest
 import com.penguinpay.libraries.extensions.binary.toBinaryString
 import io.mockk.coEvery
 import io.mockk.impl.annotations.InjectMockKs
@@ -12,7 +11,7 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class ExchangeUSDBinaryUseCaseTest : MockKCoroutinesTest() {
+class ExchangeUSDBinaryUseCaseTest {
 
     @MockK
     private lateinit var exchangeUSDUseCase: ExchangeUSDUseCase

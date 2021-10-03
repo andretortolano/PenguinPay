@@ -5,7 +5,6 @@ import com.penguinpay.libraries.coroutines.android.CoroutinesViewModel
 import com.penguinpay.libraries.coroutines.android.test.block.ViewModelGivenBlock
 import com.penguinpay.libraries.coroutines.android.test.block.ViewModelThenBlock
 import com.penguinpay.libraries.coroutines.android.test.block.ViewModelWhenBlock
-import com.penguinpay.libraries.coroutines.test.TestCoroutineService
 import io.mockk.MockKAnnotations
 import io.mockk.impl.annotations.InjectMockKs
 import org.junit.After

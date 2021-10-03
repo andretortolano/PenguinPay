@@ -1,4 +1,7 @@
+package plugins
+
 import deps.LocalDeps
+import deps.TestDeps
 
 plugins {
     `java-library`
@@ -13,9 +16,12 @@ apply(plugin = "kotlin")
 
 dependencies {
     implementation(project(LocalDeps.appDependencyInjection))
-    implementation(project(LocalDeps.libCoroutines))
     implementation(project(LocalDeps.libExtensions))
 
-    testImplementation(project(LocalDeps.libCoroutinesTest))
     testImplementation(project(LocalDeps.libExtensions))
+
+    testImplementation(TestDeps.junit)
+    testImplementation(TestDeps.googleTruth)
+    testImplementation(TestDeps.mockk)
+    testImplementation(TestDeps.coroutines)
 }

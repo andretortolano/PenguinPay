@@ -8,6 +8,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="android:windowLightStatusBar">@bool/isLight</item>
         <item name="buttonStyle">@style/PenguinPay.Button.Primary</item>
         <item name="android:textViewStyle">@style/PenguinPay.TextView</item>
         <item name="textInputStyle">@style/PenguinPay.TextInputLayout</item>

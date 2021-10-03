@@ -1,9 +1,8 @@
 package com.penguinpay.feature.binaria.ui.countryselect
 
 import com.penguinpay.domain.exchange.entity.ExchangeCountryEntity
-import com.penguinpay.domain.exchange.ExchangeUSDBinaryUseCase
 import com.penguinpay.domain.exchange.GetExchangeCountriesUseCase
-import com.penguinpay.libraries.coroutines.CoroutineService
+import com.penguinpay.libraries.coroutines.android.CoroutineService
 import kotlinx.coroutines.withContext
 
 internal class CountrySelectionModel(
