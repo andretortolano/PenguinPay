@@ -26,6 +26,7 @@ include(
 )
 
 include(
+    ":features:splash",
     ":features:binaria",
     ":features:home"
 )

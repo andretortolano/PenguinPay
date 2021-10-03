@@ -12,6 +12,7 @@ object LocalDeps {
     const val libExtensions = ":libraries:extensions"
     const val libExtensionsAndroid = ":libraries:extensions-android"
 
+    const val featureSplash = ":features:splash"
     const val featureHome = ":features:home"
     const val featureBinaria = ":features:binaria"
 

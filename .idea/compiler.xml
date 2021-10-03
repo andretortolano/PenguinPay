@@ -10,6 +10,7 @@
       <module name="PenguinPay.features.binaria" target="11" />
       <module name="PenguinPay.features.common" target="11" />
       <module name="PenguinPay.features.home" target="11" />
+      <module name="PenguinPay.features.splash" target="11" />
       <module name="PenguinPay.koin" target="11" />
       <module name="PenguinPay.libraries.coroutines-android" target="11" />
       <module name="PenguinPay.libraries.coroutines-android-test" target="11" />

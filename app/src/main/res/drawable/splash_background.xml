@@ -8,12 +8,10 @@
             <solid android:color="@color/colorAccent" />
         </shape>
     </item>
-    <item>
-
-        <bitmap
-            android:gravity="center"
-            android:src="@drawable/penguin" />
-
-    </item>
+    <item
+        android:width="300dp"
+        android:height="300dp"
+        android:drawable="@drawable/penguin"
+        android:gravity="center" />
 
 </layer-list>

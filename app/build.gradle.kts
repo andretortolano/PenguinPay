@@ -28,6 +28,7 @@ dependencies {
     implementation(project(LocalDeps.appNavigation))
     implementation(project(LocalDeps.libCoroutines))
 
+    implementation(project(LocalDeps.featureSplash))
     implementation(project(LocalDeps.featureHome))
     implementation(project(LocalDeps.featureBinaria))
 
