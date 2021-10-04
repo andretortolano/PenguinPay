@@ -6,6 +6,7 @@
       <module name="PenguinPay.appDesignSystem" target="11" />
       <module name="PenguinPay.appNavigation" target="11" />
       <module name="PenguinPay.buildSrc" target="11" />
+      <module name="PenguinPay.data.local.userPreferences" target="11" />
       <module name="PenguinPay.data.remote.exchange" target="11" />
       <module name="PenguinPay.features.binaria" target="11" />
       <module name="PenguinPay.features.common" target="11" />
@@ -15,6 +16,7 @@
       <module name="PenguinPay.libraries.coroutines-android" target="11" />
       <module name="PenguinPay.libraries.coroutines-android-test" target="11" />
       <module name="PenguinPay.libraries.extensions-android" target="11" />
+      <module name="PenguinPay.libraries.sharedPrefs" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,7 +1,7 @@
 import deps.Deps
 
 plugins {
-    plugins.`android-module`
+    `android-module`
 }
 
 dependencies {

@@ -2,7 +2,7 @@ import deps.Deps
 import deps.LocalDeps
 
 plugins {
-    plugins.`feature-module`
+    `feature-module`
 }
 
 dependencies {

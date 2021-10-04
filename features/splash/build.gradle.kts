@@ -1,3 +1,11 @@
+import deps.LocalDeps
+
 plugins {
-    plugins.`feature-module`
+    `feature-module`
+}
+
+dependencies {
+    implementation(project(LocalDeps.domainUser))
+
+    implementation(project(LocalDeps.dataLocalUserPreferences))
 }

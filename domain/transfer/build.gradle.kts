@@ -1,5 +1,5 @@
 plugins {
-    plugins.`domain-module`
+    `domain-module`
 }
 
 dependencies {

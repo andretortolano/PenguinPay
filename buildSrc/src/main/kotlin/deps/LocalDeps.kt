@@ -9,13 +9,16 @@ object LocalDeps {
     const val libCoroutinesAndroidTest = ":libraries:coroutines-android-test"
     const val libExtensions = ":libraries:extensions"
     const val libExtensionsAndroid = ":libraries:extensions-android"
+    const val libSharedPrefs = ":libraries:sharedPrefs"
 
     const val featureSplash = ":features:splash"
     const val featureHome = ":features:home"
     const val featureBinaria = ":features:binaria"
 
+    const val dataLocalUserPreferences = ":data:local:userPreferences"
     const val dataRemoteExchange = ":data:remote:exchange"
 
     const val domainExchange = ":domain:exchange"
     const val domainTransfer = ":domain:transfer"
+    const val domainUser = ":domain:user"
 }

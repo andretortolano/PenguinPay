@@ -1,3 +1,3 @@
 plugins {
-    plugins.`feature-module`
+    `feature-module`
 }

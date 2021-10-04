@@ -1,7 +1,7 @@
 import deps.LocalDeps
 
 plugins {
-    plugins.`app-module`
+    `app-module`
 }
 
 android {
@@ -32,5 +32,6 @@ dependencies {
     implementation(project(LocalDeps.featureHome))
     implementation(project(LocalDeps.featureBinaria))
 
+    implementation(project(LocalDeps.dataLocalUserPreferences))
     implementation(project(LocalDeps.dataRemoteExchange))
 }

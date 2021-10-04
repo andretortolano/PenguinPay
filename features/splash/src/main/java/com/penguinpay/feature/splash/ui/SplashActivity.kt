@@ -10,10 +10,8 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.penguinpay.feature.splash.R
 import com.penguinpay.feature.splash.databinding.ActivitySplashBinding
 import com.penguinpay.navigation.HomeNavigation
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 @SuppressLint("CustomSplashScreen")
@@ -27,6 +25,8 @@ internal class SplashActivity : AppCompatActivity() {
 
     private val homeNavigation: HomeNavigation by inject()
 
+    private val viewModel: SplashViewModel by viewModel()
+
     private val binding by lazy { ActivitySplashBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,16 +34,9 @@ internal class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupViews()
+        setupViewModel()
 
-        // TODO replace this for viewModel
-        GlobalScope.launch {
-            delay(2000)
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-
-            startActivity(homeNavigation.getHomeIntent(this@SplashActivity))
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            finish()
-        }
+        viewModel.onCreate()
     }
 
     private fun setupViews() {
@@ -52,5 +45,36 @@ internal class SplashActivity : AppCompatActivity() {
                 image.startAnimation(it)
             }
         }
+    }
+
+    private fun setupViewModel() {
+        viewModel.action.observe(this, { it?.let { handleAction(it) } })
+    }
+
+    private fun handleAction(action: SplashViewModel.SplashViewAction) {
+        when (action) {
+            SplashViewModel.SplashViewAction.GoToHome -> handleGoToHome()
+            SplashViewModel.SplashViewAction.SetDefaultNightModeAlwaysDark -> handleSetDefaultNightModeAlwaysDark()
+            SplashViewModel.SplashViewAction.SetDefaultNightModeAlwaysLight -> handleSetDefaultNightModeAlwaysLight()
+            SplashViewModel.SplashViewAction.SetDefaultNightModeFollowSystem -> handleSetDefaultNightModeFollowSystem()
+        }
+    }
+
+    private fun handleGoToHome() {
+        startActivity(homeNavigation.getHomeIntent(this@SplashActivity))
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        finish()
+    }
+
+    private fun handleSetDefaultNightModeAlwaysDark() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+    }
+
+    private fun handleSetDefaultNightModeAlwaysLight() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+    }
+
+    private fun handleSetDefaultNightModeFollowSystem() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
     }
 }

@@ -2,7 +2,7 @@ import deps.LocalDeps
 import deps.TestDeps
 
 plugins {
-    plugins.`android-module`
+    `android-module`
 }
 
 dependencies {

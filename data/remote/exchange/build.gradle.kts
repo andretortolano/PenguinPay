@@ -1,7 +1,7 @@
 import deps.Deps
 
 plugins {
-    plugins.`data-module`
+    `data-module`
 }
 
 dependencies {

@@ -1,3 +1,5 @@
+rootProject.name = "PenguinPay"
+
 @Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -8,19 +10,29 @@ dependencyResolutionManagement {
 }
 
 include(
-    ":libraries:coroutines-android",
-    ":libraries:coroutines-android-test",
-    ":libraries:extensions",
-    ":libraries:extensions-android"
+    ":appNavigation",
+    ":appDependencyInjection",
+    ":appDesignSystem",
+    ":app"
 )
 
 include(
+    ":libraries:coroutines-android",
+    ":libraries:coroutines-android-test",
+    ":libraries:extensions",
+    ":libraries:extensions-android",
+    ":libraries:sharedPrefs"
+)
+
+include(
+    ":data:local:userPreferences",
     ":data:remote:exchange"
 )
 
 include(
     ":domain:transfer",
-    ":domain:exchange"
+    ":domain:exchange",
+    ":domain:user"
 )
 
 include(
@@ -28,12 +40,3 @@ include(
     ":features:binaria",
     ":features:home"
 )
-
-include(
-    ":appNavigation",
-    ":appDependencyInjection",
-    ":appDesignSystem",
-    ":app"
-)
-
-rootProject.name = "PenguinPay"
